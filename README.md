@@ -37,7 +37,7 @@ python3 -m http.server 8000
 
 ## Deployment — GitHub Pages
 
-Hosted on GitHub Pages at **alexanderamla.com**. There is no build step, so
+Hosted on GitHub Pages at **alexanderalma.com**. There is no build step, so
 Pages serves the repository root exactly as it stands.
 
 Two files exist only for Pages:
@@ -59,7 +59,7 @@ page keeps winning. Then:
 | A | `@` | `185.199.109.153` |
 | A | `@` | `185.199.110.153` |
 | A | `@` | `185.199.111.153` |
-| CNAME | `www` | `<user>.github.io` |
+| CNAME | `www` | `Alexanderalm.github.io` |
 
 All four A records — they are GitHub's published apex addresses and give you
 redundancy, not alternatives. Add the AAAA set too if you want IPv6:
@@ -73,11 +73,11 @@ tickbox to be greyed out for up to an hour after DNS first resolves.
 
 The repo does not exist yet. It will live on **Alexander's** account, with us
 pushing as a collaborator, so he needs to create it (or invite us to create
-it) as **`alexanderamla`**, then:
+it) as **`alexanderalma`**, then:
 
 ```sh
 # ALEX = Alexander's GitHub username
-git remote add origin https://github.com/$ALEX/alexanderamla.git
+git remote add origin https://github.com/$ALEX/alexanderalma.git
 git push -u origin main
 ```
 
@@ -90,7 +90,7 @@ Three things worth knowing before that conversation:
 - **The `www` CNAME target depends on whose account it is** —
   `<his-username>.github.io`, not ours. The four apex A records above are the
   same regardless.
-- **A domain can only serve one Pages site at a time.** If `alexanderamla.com`
+- **A domain can only serve one Pages site at a time.** If `alexanderalma.com`
   gets attached to a repo on another account first, the second one silently
   fails verification.
 
@@ -105,10 +105,6 @@ git push          # Pages rebuilds on push to main
 
 ## Open questions
 
-- **Domain spelling.** The domain is `alexanderamla.com` (*amla*); this folder
-  is `alexander-alma` (*alma*). `CNAME` and all canonical tags use *amla* as
-  supplied. Worth confirming against the GoDaddy receipt before DNS is
-  pointed.
 - **Contact address.** Still `hello@alexander.art`, in four places
   (`index.html` JSON-LD, the form's `data-to`, and the contact list). Needs a
   real mailbox on the new domain.
@@ -162,8 +158,6 @@ index rather than an illustration.
 - [ ] **Contact form** — currently opens a mail draft. For a real inbox, give
       the `<form>` an `action` (Formspree, Netlify Forms, your own handler);
       `js/site.js` steps aside as soon as an `action` is present.
-- [ ] **Domain** — `SITE` in the canonical/OG tags is `https://alexander.art`.
-      Search and replace once the real domain is settled.
 - [ ] **Real content** — events, prices and testimonials are placeholder copy
       carried over from the design.
 - [ ] **Social links** — footer points at bare `instagram.com` / `spotify.com`.
