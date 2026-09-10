@@ -181,9 +181,13 @@ body { overflow-x: clip; -webkit-font-smoothing: antialiased; }
   text-transform: uppercase; color: color-mix(in srgb, #fff 78%, transparent);
   margin-bottom: var(--space-4);
 }
+@media (max-width: 480px) {
+  /* At 0.28em the three roles run past the gutter on a narrow phone. */
+  .hero-eyebrow { font-size: 10px; letter-spacing: 0.16em; }
+}
 .hero-title {
   font-size: clamp(40px, 6.6vw, 82px); line-height: 1.02; margin: 0;
-  max-width: 18ch; letter-spacing: -0.028em; font-weight: 400;
+  max-width: 21ch; letter-spacing: -0.028em; font-weight: 400;
   text-wrap: balance;
 }
 .hero-lede {
