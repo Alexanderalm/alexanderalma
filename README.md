@@ -69,11 +69,49 @@ Then in **Settings → Pages**, set the custom domain and wait for the
 certificate to issue before ticking **Enforce HTTPS**. It is normal for that
 tickbox to be greyed out for up to an hour after DNS first resolves.
 
-### Deploying a change
+### First push — when Alexander's GitHub account is ready
+
+The repo does not exist yet. It will live on **Alexander's** account, with us
+pushing as a collaborator, so he needs to create it (or invite us to create
+it) as **`alexanderamla`**, then:
+
+```sh
+# ALEX = Alexander's GitHub username
+git remote add origin https://github.com/$ALEX/alexanderamla.git
+git push -u origin main
+```
+
+Then he enables **Settings → Pages → Source: deploy from branch `main` / root**.
+
+Three things worth knowing before that conversation:
+
+- **The repo must be public.** Pages from a private repo needs a paid plan
+  (Pro/Team). The site is public either way; this is about the source.
+- **The `www` CNAME target depends on whose account it is** —
+  `<his-username>.github.io`, not ours. The four apex A records above are the
+  same regardless.
+- **A domain can only serve one Pages site at a time.** If `alexanderamla.com`
+  gets attached to a repo on another account first, the second one silently
+  fails verification.
+
+Optionally he can verify the domain at account level (Settings → Pages →
+Verified domains) which blocks anyone else claiming it on Pages later.
+
+### Deploying a change after that
 
 ```sh
 git push          # Pages rebuilds on push to main
 ```
+
+## Open questions
+
+- **Domain spelling.** The domain is `alexanderamla.com` (*amla*); this folder
+  is `alexander-alma` (*alma*). `CNAME` and all canonical tags use *amla* as
+  supplied. Worth confirming against the GoDaddy receipt before DNS is
+  pointed.
+- **Contact address.** Still `hello@alexander.art`, in four places
+  (`index.html` JSON-LD, the form's `data-to`, and the contact list). Needs a
+  real mailbox on the new domain.
 
 ## Design tokens
 
