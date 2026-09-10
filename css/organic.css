@@ -2,59 +2,68 @@
    Imported verbatim from Claude Design project "Organic"
    (497d94a3-b67d-41be-a3b4-94385fb7e7b3). This file is the source of truth
    for the system's look — retune tokens here, not in site.css. */
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo:wght@400&family=Figtree:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Figtree:wght@300;400;500;600&display=swap');
 
 :root {
-  /* ── Brand palette (Alexander) ─────────────────────────────────────────
-     Five anchors, supplied by the client:
-       #663A00  #8F5509  #B37C34  #D9B27C  #F5E3CB
-     Every ramp below is built on those anchors; interpolated steps fill the
-     gaps so the ramps stay evenly spaced in visual value. Anchors are marked.
+  /* ── Palette, sampled from the hero photograph ─────────────────────────
+     Every colour below is derived from Alexander in the rainforest gully.
+     The anchors, read straight off the frame:
+
+       #1B2C16  foliage in shade — the dominant colour of the picture
+       #0E120C  deepest shade, far right of frame
+       #608360  light coming through the canopy gap
+       #505144  wet river stone
+       #9B816E  the guitar — the only warm note in the whole image
+
+     Those anchors set the hues; the ramps are then generated in OKLCH on
+     one shared lightness scale, so step N of any ramp matches step N of the
+     others in perceived value. Chroma is fitted per step, so nothing is
+     clipped on the way into sRGB.
      ──────────────────────────────────────────────────────────────────── */
-  --color-bg: #f5e3cb;          /* anchor 5 */
-  --color-surface: #edd8ba;
-  --color-text: #33200a;
-  --color-accent: #8f5509;      /* anchor 2 */
-  --color-accent-2: #86704f;
-  --color-divider: color-mix(in srgb, #33200a 16%, transparent);
+  --color-bg: #f6efe4;          /* pale stone, the light the gully lets through */
+  --color-surface: #e9e1d3;
+  --color-text: #131d10;        /* deep forest, near-black green */
+  --color-accent: #80490b;      /* the guitar, warmed and deepened */
+  --color-accent-2: #44623b;    /* canopy green */
+  --color-divider: color-mix(in srgb, #131d10 15%, transparent);
 
-  /* Warm sand neutrals — same family, low chroma. */
-  --color-neutral-100: #fcf6ec;
-  --color-neutral-200: #f2e7d6;
-  --color-neutral-300: #e2d2b9;
-  --color-neutral-400: #c9b593;
-  --color-neutral-500: #ae9770;
-  --color-neutral-600: #8e7852;
-  --color-neutral-700: #6d5b3b;
-  --color-neutral-800: #4c3f27;
-  --color-neutral-900: #2e2414;
+  /* Warm ramp — the guitar. The only heat in the photograph, so it carries
+     every action: buttons, links, the lantern. */
+  --color-accent-100: #fff3ea;
+  --color-accent-200: #f9e3d1;
+  --color-accent-300: #efc7a6;
+  --color-accent-400: #dca473;
+  --color-accent-500: #c58242;
+  --color-accent-600: #a56521;
+  --color-accent-700: #80490b;
+  --color-accent-800: #593102;
+  --color-accent-900: #351900;
 
-  /* Primary ramp — carries all five brand anchors. */
-  --color-accent-100: #fbf2e6;
-  --color-accent-200: #f5e3cb;  /* anchor 5 */
-  --color-accent-300: #e9cda4;
-  --color-accent-400: #d9b27c;  /* anchor 4 */
-  --color-accent-500: #c69758;
-  --color-accent-600: #b37c34;  /* anchor 3 */
-  --color-accent-700: #8f5509;  /* anchor 2 */
-  --color-accent-800: #7a4805;
-  --color-accent-900: #663a00;  /* anchor 1 */
+  /* Green ramp — the canopy, from lit gap to foliage shadow. */
+  --color-accent-2-100: #f2f8f0;
+  --color-accent-2-200: #e0ecdd;
+  --color-accent-2-300: #c2d7bc;
+  --color-accent-2-400: #9dbb94;
+  --color-accent-2-500: #7aa070;
+  --color-accent-2-600: #5e8254;
+  --color-accent-2-700: #44623b;
+  --color-accent-2-800: #2d4326;
+  --color-accent-2-900: #162612;
 
-  /* Secondary ramp — the same browns pulled toward taupe, so tags, leaves
-     and "root" markers read as distinct without leaving the schema. */
-  --color-accent-2-100: #f4ede2;
-  --color-accent-2-200: #e7dcca;
-  --color-accent-2-300: #d5c6ac;
-  --color-accent-2-400: #bca98a;
-  --color-accent-2-500: #a18c6b;
-  --color-accent-2-600: #86704f;
-  --color-accent-2-700: #6b5739;
-  --color-accent-2-800: #4f3f27;
-  --color-accent-2-900: #342816;
+  /* Neutral ramp — wet river stone. Olive-leaning, never a cold grey. */
+  --color-neutral-100: #f6f6f3;
+  --color-neutral-200: #e8e8e4;
+  --color-neutral-300: #d0d0c8;
+  --color-neutral-400: #b1b2a7;
+  --color-neutral-500: #949587;
+  --color-neutral-600: #76786a;
+  --color-neutral-700: #595a4f;
+  --color-neutral-800: #3c3d35;
+  --color-neutral-900: #21221c;
 
-  --font-heading: "Caprasimo", system-ui, sans-serif;
+  --font-heading: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-heading-weight: 400;
-  --font-body: "Figtree", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, sans-serif;
 
   --space-1: 4.4px;
   --space-2: 8.8px;
@@ -63,14 +72,14 @@
   --space-6: 26.4px;
   --space-8: 35.2px;
 
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 28px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
 
-  /* Elevation — soft ink-tinted shadows on the warm ground. */
-  --shadow-sm: 0 1px 2px color-mix(in srgb, #2e2414 14%, transparent);
-  --shadow-md: 0 3px 10px color-mix(in srgb, #2e2414 16%, transparent);
-  --shadow-lg: 0 12px 32px color-mix(in srgb, #2e2414 22%, transparent);
+  /* Elevation — shadows tinted with the forest floor, never neutral black. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #131d10 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #131d10 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #131d10 22%, transparent);
 }
 
 body {
@@ -78,7 +87,10 @@ body {
   color: var(--color-text);
   font-family: var(--font-body);
 }
-h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+h1, h2, h3, h4 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+}
 
 .washed{filter:saturate(0.6) contrast(0.85) brightness(1.1) opacity(0.94)}
 
@@ -91,7 +103,8 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-headi
 body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 var(--space-2);
 }
 h1 { font-size: 42px; }
 h2 { font-size: 32px; }
@@ -123,8 +136,8 @@ figcaption {
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   cursor: pointer; text-decoration: none;
-  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 14px; line-height: 1.2; color: var(--color-text);
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 13px; line-height: 1.2; letter-spacing: 0.04em; color: var(--color-text);
   background: transparent; border: 1px solid transparent;
   padding: var(--space-2) calc(var(--space-3) * 1.2);
   border-radius: var(--radius-md);
@@ -189,10 +202,11 @@ textarea.input { min-height: 90px; resize: vertical; }
   display: flex; flex-direction: column; gap: var(--space-2);
   padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
 }
-.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-kicker { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent); }
 .card-title {
-  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 17px; line-height: 1.2;
+  font-family: var(--font-heading); font-weight: 500;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  font-size: 17px; line-height: 1.25; letter-spacing: -0.01em;
 }
 .card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
 .card-meta {
@@ -205,13 +219,13 @@ textarea.input { min-height: 90px; resize: vertical; }
 
 /* — tags — */
 .tag {
-  display: inline-flex; align-items: center; font-size: 11px;
-  letter-spacing: 0.02em; padding: 3px 10px;
-  border-radius: calc(var(--radius-md) * 0.75);
+  display: inline-flex; align-items: center; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; padding: 0;
+  background: none; border-radius: 0;
 }
-.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
-.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
-.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-accent { color: var(--color-accent-700); }
+.tag-accent-2 { color: var(--color-accent-2-700); }
+.tag-neutral { color: var(--color-neutral-600); }
 .tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
 
 /* — navigation — */
@@ -257,8 +271,3 @@ textarea.input { min-height: 90px; resize: vertical; }
 }
 .dialog-body { font-size: 14px; opacity: 0.85; }
 .dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
-
-/* — rounded frame: everything softens, small controls go pill — */
-.card, .dialog { border-radius: calc(var(--radius-lg) * 1.15); }
-.btn, .tag, .seg, .input { border-radius: 999px; }
-.input { padding-inline: 14px; }

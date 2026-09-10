@@ -19,7 +19,8 @@ facilitator.html    Root: circles, offsites, festival spaces
 css/organic.css     Design system — tokens + component classes
 css/site.css        Site layer — layout, page chrome, hover states
 js/site.js          Mobile nav, contact form, footer year
-assets/reference/   Source concept art (not shipped in a page)
+assets/img/         Hero photograph, five widths for srcset
+assets/reference/   Original concept art (not shipped in a page)
 ```
 
 The canvas was a single file that swapped sections with `<sc-if>` and a
@@ -36,25 +37,48 @@ python3 -m http.server 8000
 
 ## Design tokens
 
-`css/organic.css` is the source of truth for the look. The brand palette is
-five browns:
+`css/organic.css` is the source of truth for the look. **The palette is
+sampled from the hero photograph** — these anchors were read straight off the
+frame, and every ramp is generated from their hues:
 
-| Token | Hex | Role |
+| Sampled from | Hex | Becomes |
 |---|---|---|
-| `--color-accent-900` | `#663A00` | Darkest — footer, dark bands |
-| `--color-accent-700` | `#8F5509` | Primary accent (`--color-accent`) |
-| `--color-accent-600` | `#B37C34` | Mid — hover states |
-| `--color-accent-400` | `#D9B27C` | Light — leaves, highlights |
-| `--color-accent-200` | `#F5E3CB` | Page ground (`--color-bg`) |
+| Foliage in shade — the dominant colour of the picture | `#1B2C16` | green ramp |
+| Deepest shade, far right of frame | `#0E120C` | night-forest ground |
+| Light through the canopy gap | `#608360` | top of the green ramp |
+| Wet river stone | `#505144` | neutral ramp (olive, never cold grey) |
+| The guitar — the only warm note in the image | `#9B816E` | warm ramp: every button, link and the lantern |
 
-Interpolated steps fill the gaps so the ramps stay evenly spaced in visual
-value. Retune the palette in `:root` and the whole site follows.
+Ramps are generated in OKLCH on one shared lightness scale, so step N of any
+ramp matches step N of the others in perceived value, and chroma is fitted
+per step so nothing clips on the way into sRGB. Retune `:root` and the whole
+site follows.
+
+## Two things worth knowing before you edit
+
+**The night forest.** The index section (`#ways`) is dark, and the cursor
+carries a lantern: every row picks up the spill from wherever the light is,
+and the row under the cursor lights its own hairline edge. `js/site.js`
+writes the pointer position into `--mx` / `--my` custom properties once per
+animation frame; the gradients live entirely in CSS, so the browser only ever
+repaints. Touch devices and `prefers-reduced-motion` users get the lit state,
+unmoving.
+
+**Tone.** The design started from a canvas that was deliberately playful — a
+bouncy display face, 999px pill buttons, and a cartoon tree with a face. All
+three were retired: headings are Fraunces with its `SOFT` and `WONK` axes
+zeroed, radii are 2–4px, and the tree's structure survives as a typographic
+index rather than an illustration.
 
 ## Still to do before launch
 
-- [ ] **Photography** — six image slots are empty and show their art-direction
-      note. Drop a `<img>` inside each `.media-frame`; the note disappears
-      automatically.
+- [ ] **Photography** — the hero is real (`assets/img/alexander-rainforest-*.jpg`,
+      responsive via `srcset`). Five secondary slots are still empty and show
+      their art-direction note. Drop an `<img>` inside each `.media-frame` and
+      the note disappears automatically.
+- [ ] **Second photo** — `IMG_0866.JPG` was requested but was not in
+      `~/Downloads`; only `IMG_0865.JPG` was there. Supply it and it can fill
+      one of the empty slots.
 - [ ] **Audio** — replace the `.audio-strip` button with a SoundCloud,
       Bandcamp or Spotify embed.
 - [ ] **Contact form** — currently opens a mail draft. For a real inbox, give
