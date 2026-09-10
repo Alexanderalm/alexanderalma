@@ -35,6 +35,46 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
+## Deployment — GitHub Pages
+
+Hosted on GitHub Pages at **alexanderamla.com**. There is no build step, so
+Pages serves the repository root exactly as it stands.
+
+Two files exist only for Pages:
+
+- `CNAME` — holds the custom domain. **Do not delete it**; the Pages UI
+  rewrites it when you change the domain there, and removing it drops the
+  site back to `<user>.github.io/<repo>`.
+- `.nojekyll` — stops Pages running the files through Jekyll, which silently
+  skips anything whose name begins with an underscore.
+
+### DNS at GoDaddy
+
+Delete GoDaddy's default parking records first, or their "domain for sale"
+page keeps winning. Then:
+
+| Type | Name | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `<user>.github.io` |
+
+All four A records — they are GitHub's published apex addresses and give you
+redundancy, not alternatives. Add the AAAA set too if you want IPv6:
+`2606:50c0:8000::153` through `...8003::153`.
+
+Then in **Settings → Pages**, set the custom domain and wait for the
+certificate to issue before ticking **Enforce HTTPS**. It is normal for that
+tickbox to be greyed out for up to an hour after DNS first resolves.
+
+### Deploying a change
+
+```sh
+git push          # Pages rebuilds on push to main
+```
+
 ## Design tokens
 
 `css/organic.css` is the source of truth for the look. **The palette is
