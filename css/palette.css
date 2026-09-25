@@ -1,0 +1,61 @@
+/*
+   Alexander Alma — central colour palette
+   Derived from the supplied image palette. Keep colour decisions here so the
+   site can be retuned without hunting through component styles.
+*/
+:root {
+  /* Source palette */
+  --palette-ink: #121506;
+  --palette-umber: #352405;
+  --palette-bark: #5c3803;
+  --palette-ochre-700: #854b02;
+  --palette-ochre-600: #a76203;
+  --palette-ochre-500: #c97f0b;
+  --palette-gold: #e3ac45;
+  --palette-sun: #f0c872;
+
+  /* Semantic tokens used by the base system and site components */
+  --color-bg: color-mix(in srgb, var(--palette-sun) 18%, white);
+  --color-surface: color-mix(in srgb, var(--palette-sun) 32%, white);
+  --color-text: var(--palette-ink);
+  --color-accent: var(--palette-ochre-700);
+  --color-accent-2: var(--palette-bark);
+  --color-divider: color-mix(in srgb, var(--palette-ink) 18%, transparent);
+
+  /* Primary ochre ramp — links, buttons, focus states and calls to action */
+  --color-accent-100: color-mix(in srgb, var(--palette-sun) 22%, white);
+  --color-accent-200: color-mix(in srgb, var(--palette-sun) 52%, white);
+  --color-accent-300: var(--palette-sun);
+  --color-accent-400: var(--palette-gold);
+  --color-accent-500: var(--palette-ochre-500);
+  --color-accent-600: var(--palette-ochre-600);
+  --color-accent-700: var(--palette-ochre-700);
+  --color-accent-800: var(--palette-bark);
+  --color-accent-900: var(--palette-umber);
+
+  /* Supporting earth ramp */
+  --color-accent-2-100: color-mix(in srgb, var(--palette-sun) 14%, white);
+  --color-accent-2-200: color-mix(in srgb, var(--palette-gold) 26%, white);
+  --color-accent-2-300: color-mix(in srgb, var(--palette-gold) 56%, white);
+  --color-accent-2-400: var(--palette-gold);
+  --color-accent-2-500: var(--palette-ochre-500);
+  --color-accent-2-600: var(--palette-ochre-600);
+  --color-accent-2-700: var(--palette-ochre-700);
+  --color-accent-2-800: var(--palette-bark);
+  --color-accent-2-900: var(--palette-umber);
+
+  /* Warm neutrals keep body copy and borders restrained and readable */
+  --color-neutral-100: color-mix(in srgb, var(--palette-sun) 10%, white);
+  --color-neutral-200: color-mix(in srgb, var(--palette-sun) 22%, white);
+  --color-neutral-300: color-mix(in srgb, var(--palette-gold) 42%, white);
+  --color-neutral-400: color-mix(in srgb, var(--palette-ochre-500) 48%, white);
+  --color-neutral-500: color-mix(in srgb, var(--palette-ochre-700) 70%, white);
+  --color-neutral-600: var(--palette-ochre-700);
+  --color-neutral-700: var(--palette-bark);
+  --color-neutral-800: var(--palette-umber);
+  --color-neutral-900: var(--palette-ink);
+
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--palette-ink) 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, var(--palette-ink) 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, var(--palette-ink) 22%, transparent);
+}
