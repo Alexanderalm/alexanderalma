@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,60 +17,149 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/organic.css" />
-<link rel="stylesheet" href="css/palette.css" />
-<link rel="stylesheet" href="css/site.css" />
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+<link rel="stylesheet" href="css/organic.css?v=20260925f" />
+<link rel="stylesheet" href="css/palette.css?v=20260925f" />
+<link rel="stylesheet" href="css/site.css?v=20260925f" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="ground grain">
+<div class="ground grain ground-ochre">
   <header class="site-header">
-    <nav class="nav site-nav" data-open="false" aria-label="Main">
+    <nav class="site-nav" data-open="false" aria-label="Main">
       <a class="nav-brand" href="index.html">Alexander</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle menu">Menu</button>
-      <div class="nav-collapse">
-          <a href="sound-healer.html">Sound Healer</a>
-          <a href="musician.html">Musician</a>
-          <span class="nav-roots">
-            <a href="business.html">Business</a>
-            <a href="practitioner.html">Practitioner</a>
-            <a href="facilitator.html" aria-current="page">Facilitator</a>
-          </span>
-          <a class="btn btn-primary btn-md nav-cta" href="#contact">Go Deeper!</a>
+      <span class="nav-context" aria-hidden="true">Facilitator</span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-label">Menu</span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav-collapse" id="site-menu">
+        <div class="nav-collapse-inner">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="sound-healer.html">Sound Healer</a></li>
+            <li class="nav-item"><a class="nav-link" href="musician.html">Musician</a></li>
+            <li class="nav-item nav-item-root nav-item-first-root"><a class="nav-link" href="business.html">Business</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="practitioner.html">Practitioner</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="facilitator.html" aria-current="page">Facilitator</a></li>
+          </ul>
+          <a class="nav-cta" href="#contact">Go Deeper!</a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main id="main" class="rise">
-    <section class="wrap-md" style="padding-block: calc(var(--space-8) * 2) var(--space-8)">
+    <!-- Hero: title, then the circle itself, full width. -->
+    <section class="wrap-md page-open" style="padding-bottom: var(--space-8)">
       <p class="back-link"><a href="index.html#ways">&larr; All the work</a></p>
-      <span class="eyebrow">Root</span>
-      <h1 class="page-title">Facilitator</h1>
-      <p class="lede">A circle of people, and someone whose job is to keep it safe enough to be honest in. Men&rsquo;s groups, team offsites, grief circles, festival containers. Sound often opens the space; the conversation is what people remember.</p>
+      <span class="eyebrow">Facilitator</span>
+      <h1 class="page-statement" style="margin-top: var(--space-4)">A circle of people, and someone to keep it safe.</h1>
+    </section>
+    <figure class="media-feature media-feature-tall">
+      <div class="media-frame" data-placeholder="Circle in the fern gully, Kallista — from above or wide, everyone visible"></div>
+      <figcaption><span>Kallista</span><span>Six to twenty people</span></figcaption>
+    </figure>
+
+    <!-- The gathering — what happens when people come together. -->
+    <section class="section-air wrap-md" style="padding-top: calc(var(--space-8) * 2.4)">
+      <p class="statement">Safe enough to be honest in. <span class="quiet">That is the whole job.</span></p>
+      <p class="statement-follow">Men&rsquo;s groups, team offsites, grief circles, festival containers. Sound often opens the space; the conversation is what people remember. My part is structure, timing and care &mdash; so that nobody has to hold the room but me.</p>
     </section>
 
-    <section class="wrap-md section-tight">
-      <figure class="media-frame media-wide" data-placeholder="Circle in the fern gully, Kallista"></figure>
+    <!-- Spaces — by scale. -->
+    <section class="section wrap-md" style="padding-top: 0">
+      <div class="section-intro"><span class="eyebrow">Spaces</span><h2 class="section-title">Four kinds of room</h2></div>
+      <ul class="ruled-list">
+        <li><h3 class="ruled-term">Circles</h3><p class="ruled-desc">Monthly ongoing groups and one-off gatherings.</p><span class="ruled-meta">6&ndash;20 people</span></li>
+        <li><h3 class="ruled-term">Offsites &amp; away days</h3><p class="ruled-desc">Designed with you. Movement, sound, and structured conversation.</p><span class="ruled-meta">Half or full day</span></li>
+        <li><h3 class="ruled-term">Festivals</h3><p class="ruled-desc">Holding a tent for a weekend &mdash; schedule, crew briefing and closing ceremony included.</p><span class="ruled-meta">A weekend</span></li>
+        <li><h3 class="ruled-term">Community events</h3><p class="ruled-desc">Open gatherings for a neighbourhood, a group, a season turning.</p><span class="ruled-meta">Open door</span></li>
+      </ul>
     </section>
 
-    <section class="wrap-md section">
-      <div class="card-grid">
-        <article class="card card-soft">
-          <h2 class="card-title">Circles</h2>
-          <p class="card-body">Monthly ongoing groups and one-off gatherings, six to twenty people.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Offsites &amp; away days</h2>
-          <p class="card-body">Half or full day, designed with you. Movement, sound, and structured conversation.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Festival spaces</h2>
-          <p class="card-body">Holding a tent for a weekend &mdash; schedule, crew briefing and closing ceremony included.</p>
-        </article>
+    <!-- How a gathering unfolds — six steps on one line. -->
+    <section class="band">
+      <div class="wrap">
+        <div class="section-intro"><span class="eyebrow">How a gathering unfolds</span></div>
+        <ol class="process process-on-dark">
+          <li><span class="process-num">01</span><span class="process-name">Arrival</span><p class="process-text">People come in from wherever they were.</p></li>
+          <li><span class="process-num">02</span><span class="process-name">Opening</span><p class="process-text">Why we&rsquo;re here, and how we&rsquo;ll be together.</p></li>
+          <li><span class="process-num">03</span><span class="process-name">Sound</span><p class="process-text">To settle the room before anyone has to speak.</p></li>
+          <li><span class="process-num">04</span><span class="process-name">Participation</span><p class="process-text">The circle, the conversation, the work itself.</p></li>
+          <li><span class="process-num">05</span><span class="process-name">Reflection</span><p class="process-text">What landed, and what to take.</p></li>
+          <li><span class="process-num">06</span><span class="process-name">Closing</span><p class="process-text">A clear end, so people can leave well.</p></li>
+        </ol>
       </div>
     </section>
 
+    <!-- Examples — small documentary photographs, each with its story. -->
+    <section class="section wrap-md">
+      <div class="section-intro"><span class="eyebrow">Examples</span></div>
+      <div class="editorial-split editorial-split-even" style="row-gap: calc(var(--space-8) * 1.6)">
+        <div class="image-story image-story-small" style="align-items: start">
+          <figure><div class="media-frame" data-placeholder="Men's circle, fire"></div></figure>
+          <div><h3 class="ruled-term">A men&rsquo;s circle</h3><p class="split-body" style="margin-top: var(--space-2)">A monthly group, held over a year. The same faces, going a little further each time.</p></div>
+        </div>
+        <div class="image-story image-story-small" style="align-items: start">
+          <figure><div class="media-frame" data-placeholder="Festival tent, late"></div></figure>
+          <div><h3 class="ruled-term">A festival tent</h3><p class="split-body" style="margin-top: var(--space-2)">Three days of sessions with a volunteer crew &mdash; briefed, rested, and calm.</p></div>
+        </div>
+        <div class="image-story image-story-small" style="align-items: start">
+          <figure><div class="media-frame" data-placeholder="Grief circle, candles"></div></figure>
+          <div><h3 class="ruled-term">A grief circle</h3><p class="split-body" style="margin-top: var(--space-2)">One evening, for people who had lost someone that year.</p></div>
+        </div>
+        <div class="image-story image-story-small" style="align-items: start">
+          <figure><div class="media-frame" data-placeholder="Team offsite, outdoors"></div></figure>
+          <div><h3 class="ruled-term">A team away day</h3><p class="split-body" style="margin-top: var(--space-2)">A full day outdoors for a team coming out of a hard year.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- For organisers — practical information. -->
+    <section class="section wrap-md" style="padding-top: 0">
+      <div class="section-intro section-intro-split">
+        <div><span class="eyebrow">For organisers</span><h2 class="section-title">What I bring, and what I need</h2></div>
+        <p>If you&rsquo;re putting on a retreat, a festival or a team day, this is what working together looks like.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Group size</dt><dd>6 to 30<small>Larger with a co-facilitator.</small></dd></div>
+        <div><dt>Duration</dt><dd>An evening to a weekend<small>Designed around your programme.</small></dd></div>
+        <div><dt>I bring</dt><dd>Instruments and structure<small>Gongs, bowls, and a clear plan agreed in advance.</small></dd></div>
+        <div><dt>You provide</dt><dd>The space<small>Quiet, warm, and big enough to lie down in.</small></dd></div>
+      </dl>
+    </section>
+
+    <!-- Collaboration — a single paragraph. -->
+    <section class="section wrap-sm" style="padding-top: 0">
+      <span class="eyebrow">Collaboration</span>
+      <p class="statement statement-sm" style="margin-top: var(--space-4)">I work alongside other facilitators, therapists and organisers <span class="quiet">&mdash; sound as one thread in a larger programme.</span></p>
+    </section>
+
+    <section class="final-invitation">
+      <div class="wrap-sm">
+        <p class="statement">Tell me about your gathering.</p>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="#contact">Book or enquire</a></div>
+      </div>
+    </section>
   </main>
+
+  <!-- Ways in — the hero's three doors, on every page. -->
+  <section class="ways-strip" aria-label="Ways in">
+    <div class="ways-strip-inner">
+      <a class="ways-strip-item" href="https://cal.com/alexanderalma/90mins" data-cal-link="alexanderalma/90mins" rel="noopener">
+        <span class="ways-strip-kicker">One to one &middot; 90 minutes</span>
+        <span class="ways-strip-name">Book a session&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">
+        <span class="ways-strip-kicker">The community &middot; free</span>
+        <span class="ways-strip-name">Join Sacred Playground&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">
+        <span class="ways-strip-kicker">Inspired by the music?</span>
+        <span class="ways-strip-name">Support on Patreon&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
   <section id="contact" class="contact">
     <div class="contact-grid">
@@ -80,14 +169,14 @@
         <p class="contact-lede">Tell me what you&rsquo;re holding &mdash; a date, a room, a group, or just a sense that something needs to shift. I answer everything myself, usually within two days.</p>
       </div>
       <div>
-        <form class="contact-form" data-to="hello@alexander.art">
+        <form class="contact-form" data-to="presence@alexanderalma.com">
           <label class="visually-hidden" for="contact-email">Your email address</label>
           <input class="input" id="contact-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required />
           <button class="btn btn-primary" type="submit">Send</button>
         </form>
         <p class="form-status" role="status" aria-live="polite"></p>
         <dl class="contact-detail" style="margin-top: var(--space-8)">
-          <div><dt>Email</dt><dd><a href="mailto:hello@alexander.art">hello@alexander.art</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:presence@alexanderalma.com">presence@alexanderalma.com</a></dd></div>
           <div><dt>Based</dt><dd>Dandenong Ranges, Victoria &mdash; travelling for retreats and festivals</dd></div>
           <div><dt>Response</dt><dd>Within two days, personally</dd></div>
         </dl>
@@ -102,12 +191,14 @@
         <a href="sound-healer.html">Sound Healer</a>
         <a href="musician.html">Musician</a>
         <a href="#contact">Contact</a>
+        <a href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">Sacred Playground</a>
+        <a href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">Patreon</a>
         <a href="https://instagram.com" rel="me noopener">Instagram</a>
         <a href="https://open.spotify.com" rel="me noopener">Spotify</a>
       </nav>
     </div>
   </footer>
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=20260925f"></script>
 </body>
 </html>

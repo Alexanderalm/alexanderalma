@@ -10,13 +10,14 @@ system (`497d94a3-…`).
 ## Structure
 
 ```
-index.html          The tree — two branches, three roots
-sound-healer.html   Branch: sound baths, sessions, pricing
-musician.html       Branch: live sets, ceremony, collaboration
-business.html       Root: corporate wellbeing, retreat ops, mentoring
-practitioner.html   Root: training, practice, ethics
-facilitator.html    Root: circles, offsites, festival spaces
-css/organic.css     Design system — tokens + component classes
+index.html          Home — the whole world: two ways in, the person, three worlds, listen, who it's for
+sound-healer.html   Branch: what it is, a session in five movements, one to one, group baths, practicalities
+musician.html       Branch: listen, live, ceremony, collaboration, selected work, upcoming, booking
+business.html       Root: the problem, the approach, where it works, formats, enquiry
+practitioner.html   Root: practice, ethics, training, mentoring pathway, FAQ
+facilitator.html    Root: the gathering, spaces, how it unfolds, examples, for organisers
+css/organic.css     Design system — base tokens + component classes
+css/palette.css     Colour palette — overrides organic.css's colour tokens (the palette we keep)
 css/site.css        Site layer — layout, page chrome, hover states
 js/site.js          Mobile nav, contact form, footer year
 assets/img/         Hero photograph, five widths for srcset
@@ -27,6 +28,20 @@ The canvas was a single file that swapped sections with `<sc-if>` and a
 `DCLogic` class. That is a canvas runtime, not the web — here each "page" is a
 real page with its own URL, title, description and canonical link, so the site
 is crawlable, shareable and works without JavaScript.
+
+## Content architecture
+
+The pages are **not** one template. Each changes the *kind* of content as the
+visitor scrolls — image, statement, story, process, media, people, invitation —
+in its own order, so no section is predictable from the one before it. The
+rhythm was modelled on how cristinastoian.nl moves between narrative modes,
+borrowing the structure only, never the look or the words.
+
+`css/site.css` → *Editorial vocabulary* holds the components: `.statement`,
+`.editorial-split`, `.media-feature`, `.process` (+ `.process-vertical`),
+`.ruled-list`, `.word-stack`, `.facts`, `.image-story`, `.audio-feature`,
+`.voices`, `.faq`, `.final-invitation`. They are vocabulary, not a template:
+before adding a section, check the one above it isn't the same shape.
 
 ## Running it
 
@@ -105,13 +120,28 @@ git push          # Pages rebuilds on push to main
 
 ## Open questions
 
-- **Contact address.** Still `hello@alexander.art`, in four places
-  (`index.html` JSON-LD, the form's `data-to`, and the contact list). Needs a
-  real mailbox on the new domain.
+- **Accounts (confirmed 2026-09-25).**
+  - Cal.com — `cal.com/alexanderalma`. Every **Book** button opens the
+    `90mins` event, *Vibrational Empathy Sound Healing*
+    (`data-cal-link="alexanderalma/90mins"`). There is also a `15min`
+    meeting, not linked yet. **Price still to confirm:** the site says
+    £85 and Cal.com's page doesn't show a price we can read.
+  - Mighty Networks — **Sacred Playground**, `alexander-alma.mn.co/spaces/25129475/about` (hero, `#ways-in`,
+    `#stay-close`, every footer).
+  - Patreon — `patreon.com/profile/creators?u=227957515`, same places. A
+    vanity URL (`patreon.com/<name>`) reads better once one is claimed.
 
+  Booking uses Cal.com's **embed** (`js/site.js`), not API v2: v2 authenticates
+  with a secret `cal_live_…` key that must never reach the browser, and Pages
+  has no server to hold it. If you later need v2 (e.g. syncing bookings into
+  Mighty Networks), that needs a small serverless function alongside the site.
+
+- **Contact address** — `presence@alexanderalma.com` (confirmed 2026-09-25).
 ## Design tokens
 
-`css/organic.css` is the source of truth for the look. **The palette is
+**Colour now lives in `css/palette.css`** — Alexander's ochre palette (ink, umber, bark, three ochres, gold, sun). It loads after `organic.css` and redefines every `--color-*` token, so change colour there and nowhere else. `site.css` uses no hardcoded palette colours: its near-black tones (hero scrim, night forest, nav shadow) all read `--palette-ink`. The notes below describe the original photo-sampled palette, which `palette.css` replaced; the type, spacing and radius tokens in `css/organic.css` still apply.
+
+`css/organic.css` is the source of truth for the rest of the look. **The palette is
 sampled from the hero photograph** — these anchors were read straight off the
 frame, and every ramp is generated from their hues:
 
@@ -159,5 +189,16 @@ index rather than an illustration.
       the `<form>` an `action` (Formspree, Netlify Forms, your own handler);
       `js/site.js` steps aside as soon as an `action` is present.
 - [ ] **Real content** — events, prices and testimonials are placeholder copy
-      carried over from the design.
-- [ ] **Social links** — footer points at bare `instagram.com` / `spotify.com`.
+- [ ] **Testimonials** — the three quotes in the home page's voices section
+      came with the design canvas and are **not verified**. Replace them with
+      real words (with permission) or delete the section. Never invent them.
+- [ ] **New copy is draft** — the content restructure wrote new section copy
+      on every page from the facts already on the site. Alexander should read
+      all of it, especially: the practitioner **mentoring pathway and FAQ**
+      (does he offer this, and how?), the business **formats**, the facilitator
+      **examples** and "you provide", and the quote on the home page ("I would
+      rather hold a room well than fill it") which is written in his voice.
+- [ ] **Location vs. prices** — the site says he is based in the Dandenong
+      Ranges (Victoria) but prices are in £ and the events are in the UK.
+- [ ] **Case study** — `business.html` has a slot marked for one; add it
+      when there is a real story to tell.

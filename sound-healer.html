@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,73 +17,186 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/organic.css" />
-<link rel="stylesheet" href="css/palette.css" />
-<link rel="stylesheet" href="css/site.css" />
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+<link rel="stylesheet" href="css/organic.css?v=20260925f" />
+<link rel="stylesheet" href="css/palette.css?v=20260925f" />
+<link rel="stylesheet" href="css/site.css?v=20260925f" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="ground grain">
+<div class="ground grain ground-ochre">
   <header class="site-header">
-    <nav class="nav site-nav" data-open="false" aria-label="Main">
+    <nav class="site-nav" data-open="false" aria-label="Main">
       <a class="nav-brand" href="index.html">Alexander</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle menu">Menu</button>
-      <div class="nav-collapse">
-          <a href="sound-healer.html" aria-current="page">Sound Healer</a>
-          <a href="musician.html">Musician</a>
-          <span class="nav-roots">
-            <a href="business.html">Business</a>
-            <a href="practitioner.html">Practitioner</a>
-            <a href="facilitator.html">Facilitator</a>
-          </span>
-          <a class="btn btn-primary btn-md nav-cta" href="#contact">Go Deeper!</a>
+      <span class="nav-context" aria-hidden="true">Sound Healer</span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-label">Menu</span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav-collapse" id="site-menu">
+        <div class="nav-collapse-inner">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="sound-healer.html" aria-current="page">Sound Healer</a></li>
+            <li class="nav-item"><a class="nav-link" href="musician.html">Musician</a></li>
+            <li class="nav-item nav-item-root nav-item-first-root"><a class="nav-link" href="business.html">Business</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="practitioner.html">Practitioner</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="facilitator.html">Facilitator</a></li>
+          </ul>
+          <a class="nav-cta" href="#contact">Go Deeper!</a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main id="main" class="rise">
-    <section class="wrap-md" style="padding-block: calc(var(--space-8) * 2) var(--space-8)">
+    <!-- Hero: a question, and a lot of air. -->
+    <section class="wrap-md page-open">
       <p class="back-link"><a href="index.html#ways">&larr; All the work</a></p>
-      <span class="eyebrow">Branch</span>
-      <h1 class="page-title">Sound Healer</h1>
-      <p class="lede">Three gongs, a set of Himalayan and crystal bowls, and a mallet worn smooth. A sound bath is not a performance &mdash; you lie down, I hold the room, and the sound does what it does. Sessions run 60 to 90 minutes, one to one or in groups up to thirty.</p>
+      <span class="eyebrow">Sound Healer</span>
+      <h1 class="page-statement" style="margin-top: var(--space-4)">What happens when you stop trying to fix yourself, and simply listen?</h1>
     </section>
 
+    <!-- What it is — short, plain, honest about limits. -->
     <section class="wrap-md section-tight">
-      <figure class="media-frame media-hero" data-placeholder="Sound bath among tree ferns, Dandenong Ranges"></figure>
-    </section>
-
-    <section class="wrap-md section">
-      <div class="card-grid">
-        <article class="card card-soft">
-          <span class="card-kicker">Session</span>
-          <h2 class="card-title">One to one</h2>
-          <p class="card-body">A 75-minute session built around where you actually are that day. Short conversation, then sound.</p>
-          <span class="price">&pound;85</span>
-        </article>
-        <article class="card card-soft">
-          <span class="card-kicker">Session</span>
-          <h2 class="card-title">Group sound bath</h2>
-          <p class="card-body">Public evenings and private bookings. Up to thirty people, mats and blankets provided.</p>
-          <span class="price">&pound;22 per person &middot; &pound;450 private</span>
-        </article>
-        <article class="card card-soft">
-          <span class="card-kicker">Session</span>
-          <h2 class="card-title">Retreats</h2>
-          <p class="card-body">Sound woven through a whole weekend &mdash; opening ceremony, morning practice, closing bath.</p>
-          <span class="price">On enquiry</span>
-        </article>
+      <div class="editorial-split">
+        <div>
+          <span class="eyebrow">What sound healing is</span>
+          <h2 class="split-title">Not a performance. Not a cure.</h2>
+        </div>
+        <div class="prose">
+          <p class="prose-lead">A sound bath is time spent lying still inside sound &mdash; three gongs, Himalayan and crystal bowls, and a mallet worn smooth.</p>
+          <p>The sound is slow and layered, so the mind has nothing to follow and eventually stops trying. Most people describe the breath deepening and the body letting go of something it had been holding.</p>
+          <p>It is not therapy and it is not medicine, and I make no medical claims. It sits alongside whatever else you are doing to look after yourself.</p>
+        </div>
       </div>
     </section>
 
-    <section class="band band-tight">
+    <!-- The experience — the image carries it. -->
+    <section class="section-tight">
+      <figure class="media-feature">
+        <div class="media-frame" data-placeholder="Sound bath among tree ferns, Dandenong Ranges — wide, low, people lying still"></div>
+        <figcaption>
+          <span>The experience</span>
+          <p>Lights low. Blankets. The first gong so quiet you are not sure it has started. Sessions run 60 to 90 minutes.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Five movements, on a circle: the last returns to the first. -->
+    <section class="section wrap-md">
+      <div class="process-circle-wrap">
+        <div class="process-circle-centre">
+          <span class="eyebrow">A session</span>
+          <h2 class="section-title">In five movements</h2>
+        </div>
+        <ol class="process process-circle">
+          <li style="--x:50%;   --y:0%;    --ox:0;   --oy:-1"><span class="process-num">i</span><span class="process-name">Arrival</span><p class="process-text">Shoes off, find a mat. There is tea, and no rush.</p></li>
+          <li style="--x:97.6%; --y:34.5%; --ox:1;   --oy:-.3"><span class="process-num">ii</span><span class="process-name">Listening</span><p class="process-text">A few words &mdash; where you are today, or what to expect.</p></li>
+          <li style="--x:79.4%; --y:90.5%; --ox:.6;  --oy:.8"><span class="process-num">iii</span><span class="process-name">Sound</span><p class="process-text">Bowls, then gongs, rising and falling. You don&rsquo;t need to do anything.</p></li>
+          <li style="--x:20.6%; --y:90.5%; --ox:-.6; --oy:.8"><span class="process-num">iv</span><span class="process-name">Silence</span><p class="process-text">The sound stops and the room keeps ringing.</p></li>
+          <li style="--x:2.4%;  --y:34.5%; --ox:-1;  --oy:-.3"><span class="process-num">v</span><span class="process-name">Integration</span><p class="process-text">A slow return: sitting up, water, time before you drive.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Who it's for — sentences, not categories. -->
+    <section class="section-air wrap-md" style="padding-top: calc(var(--space-8) * 1.4)">
+      <span class="eyebrow">Who it is for</span>
+      <ul class="ruled-list ruled-list-large" style="margin-top: var(--space-6)">
+        <li><p>You carry a lot for other people and rarely put it down.</p></li>
+        <li><p>Your body is quicker to tell the truth than your words are.</p></li>
+        <li><p>You have tried to think your way to rest, and it hasn&rsquo;t worked.</p></li>
+        <li><p>You are simply curious what a gong sounds like from the floor.</p></li>
+      </ul>
+    </section>
+
+    <!-- One to one — intimate scale. -->
+    <section id="one-to-one" class="section wrap-md">
+      <div class="image-story">
+        <figure><div class="media-frame" data-placeholder="One to one — a single mat, a single gong, afternoon light"></div></figure>
+        <div class="prose">
+          <span class="eyebrow">One to one</span>
+          <h2 class="split-title" style="margin-bottom: var(--space-6)">Built around where you are that day</h2>
+          <p class="prose-lead">Vibrational Empathy Sound Healing: ninety minutes. A short conversation, then sound shaped to what came up in it.</p>
+          <p>Good for a first experience, for a hard season, or for going further than a group allows.</p>
+          <span class="price" style="display:block; margin-top: var(--space-6)">&pound;85 &middot; 90 minutes</span>
+          <div class="actions" style="margin-top: var(--space-6)">
+            <a class="btn btn-primary btn-lg" href="https://cal.com/alexanderalma/90mins"
+               data-cal-link="alexanderalma/90mins" rel="noopener">Book a time</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group — the other scale: many people, dates. -->
+    <section class="band">
       <div class="wrap-md">
-        <blockquote class="pull-quote">&ldquo;I have never been that still in my body. I cried for the first twenty minutes and then something let go.&rdquo;</blockquote>
-        <p class="pull-attrib">Retreat guest, Devon</p>
+        <div class="editorial-split">
+          <div>
+            <span class="eyebrow">Sound bath</span>
+            <h2 class="band-title" style="margin-top: var(--space-3)">Together, up to thirty</h2>
+            <p class="band-body">Public evenings and private bookings. Mats and blankets provided. For retreats, sound can be woven through a whole weekend &mdash; opening ceremony, morning practice, closing bath.</p>
+          </div>
+          <div>
+            <span class="eyebrow">Next public baths</span>
+            <ul class="events band-events">
+              <li><div class="event">
+                <span class="event-date">14 Nov</span>
+                <h3 class="event-name">Full Moon Sound Bath</h3>
+                <span class="event-where">Bristol &middot; The Old Chapel</span>
+                <a class="btn btn-outline-light" href="#contact">Reserve</a>
+              </div></li>
+              <li><div class="event">
+                <span class="event-date">29 Nov</span>
+                <h3 class="event-name">Winter Retreat &mdash; Sound &amp; Silence</h3>
+                <span class="event-where">Devon &middot; Two nights</span>
+                <a class="btn btn-outline-light" href="#contact">Reserve</a>
+              </div></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Practical details — the facts, plainly. -->
+    <section class="section wrap-md">
+      <span class="eyebrow">Practical details</span>
+      <dl class="facts" style="margin-top: var(--space-6)">
+        <div><dt>Duration</dt><dd>60&ndash;90 minutes<small>One to one is 90 minutes.</small></dd></div>
+        <div><dt>Location</dt><dd>Dandenong Ranges<small>And travelling for retreats and festivals.</small></dd></div>
+        <div><dt>Pricing</dt><dd>&pound;85 one to one<small>&pound;22 per person in a group &middot; &pound;450 private group &middot; retreats on enquiry.</small></dd></div>
+        <div><dt>Booking</dt><dd>Online, any time<small>Groups and retreats: write to me below.</small></dd></div>
+      </dl>
+    </section>
+
+    <section class="final-invitation">
+      <div class="wrap-sm">
+        <p class="statement">Lie down. Let the sound do the rest.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="https://cal.com/alexanderalma/90mins"
+             data-cal-link="alexanderalma/90mins" rel="noopener">Book a session</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Ways in — the hero's three doors, on every page. -->
+  <section class="ways-strip" aria-label="Ways in">
+    <div class="ways-strip-inner">
+      <a class="ways-strip-item" href="https://cal.com/alexanderalma/90mins" data-cal-link="alexanderalma/90mins" rel="noopener">
+        <span class="ways-strip-kicker">One to one &middot; 90 minutes</span>
+        <span class="ways-strip-name">Book a session&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">
+        <span class="ways-strip-kicker">The community &middot; free</span>
+        <span class="ways-strip-name">Join Sacred Playground&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">
+        <span class="ways-strip-kicker">Inspired by the music?</span>
+        <span class="ways-strip-name">Support on Patreon&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
   <section id="contact" class="contact">
     <div class="contact-grid">
@@ -93,14 +206,14 @@
         <p class="contact-lede">Tell me what you&rsquo;re holding &mdash; a date, a room, a group, or just a sense that something needs to shift. I answer everything myself, usually within two days.</p>
       </div>
       <div>
-        <form class="contact-form" data-to="hello@alexander.art">
+        <form class="contact-form" data-to="presence@alexanderalma.com">
           <label class="visually-hidden" for="contact-email">Your email address</label>
           <input class="input" id="contact-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required />
           <button class="btn btn-primary" type="submit">Send</button>
         </form>
         <p class="form-status" role="status" aria-live="polite"></p>
         <dl class="contact-detail" style="margin-top: var(--space-8)">
-          <div><dt>Email</dt><dd><a href="mailto:hello@alexander.art">hello@alexander.art</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:presence@alexanderalma.com">presence@alexanderalma.com</a></dd></div>
           <div><dt>Based</dt><dd>Dandenong Ranges, Victoria &mdash; travelling for retreats and festivals</dd></div>
           <div><dt>Response</dt><dd>Within two days, personally</dd></div>
         </dl>
@@ -115,12 +228,14 @@
         <a href="sound-healer.html">Sound Healer</a>
         <a href="musician.html">Musician</a>
         <a href="#contact">Contact</a>
+        <a href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">Sacred Playground</a>
+        <a href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">Patreon</a>
         <a href="https://instagram.com" rel="me noopener">Instagram</a>
         <a href="https://open.spotify.com" rel="me noopener">Spotify</a>
       </nav>
     </div>
   </footer>
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=20260925f"></script>
 </body>
 </html>

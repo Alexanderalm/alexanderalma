@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,56 +17,144 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/organic.css" />
-<link rel="stylesheet" href="css/palette.css" />
-<link rel="stylesheet" href="css/site.css" />
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+<link rel="stylesheet" href="css/organic.css?v=20260925f" />
+<link rel="stylesheet" href="css/palette.css?v=20260925f" />
+<link rel="stylesheet" href="css/site.css?v=20260925f" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="ground grain">
+<div class="ground grain ground-ochre">
   <header class="site-header">
-    <nav class="nav site-nav" data-open="false" aria-label="Main">
+    <nav class="site-nav" data-open="false" aria-label="Main">
       <a class="nav-brand" href="index.html">Alexander</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle menu">Menu</button>
-      <div class="nav-collapse">
-          <a href="sound-healer.html">Sound Healer</a>
-          <a href="musician.html">Musician</a>
-          <span class="nav-roots">
-            <a href="business.html">Business</a>
-            <a href="practitioner.html" aria-current="page">Practitioner</a>
-            <a href="facilitator.html">Facilitator</a>
-          </span>
-          <a class="btn btn-primary btn-md nav-cta" href="#contact">Go Deeper!</a>
+      <span class="nav-context" aria-hidden="true">Practitioner</span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-label">Menu</span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav-collapse" id="site-menu">
+        <div class="nav-collapse-inner">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="sound-healer.html">Sound Healer</a></li>
+            <li class="nav-item"><a class="nav-link" href="musician.html">Musician</a></li>
+            <li class="nav-item nav-item-root nav-item-first-root"><a class="nav-link" href="business.html">Business</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="practitioner.html" aria-current="page">Practitioner</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="facilitator.html">Facilitator</a></li>
+          </ul>
+          <a class="nav-cta" href="#contact">Go Deeper!</a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main id="main" class="rise">
-    <section class="wrap-md" style="padding-block: calc(var(--space-8) * 2) var(--space-8)">
+    <!-- Hero: quiet and reflective. -->
+    <section class="wrap-sm page-open">
       <p class="back-link"><a href="index.html#ways">&larr; All the work</a></p>
-      <span class="eyebrow">Root</span>
-      <h1 class="page-title">Practitioner</h1>
-      <p class="lede">Sun and moon, hand and ear. Daily practice is the only reason any of the rest of it holds &mdash; breathwork at first light, sitting at dusk, and a long apprenticeship in listening to what a room needs rather than what I planned.</p>
+      <span class="eyebrow">Practitioner</span>
+      <h1 class="page-statement" style="margin-top: var(--space-4)">Sun and moon, hand and ear.</h1>
+      <p class="lede">Practice, training and a clear ethical frame &mdash; the ground everything else stands on, and what I offer to practitioners finding theirs.</p>
     </section>
 
-    <section class="wrap-md section">
-      <div class="card-grid">
-        <article class="card card-soft">
-          <h2 class="card-title">Training</h2>
-          <p class="card-body">Gong and therapeutic sound certification, 2019. Ongoing study in trauma-aware facilitation.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Practice</h2>
-          <p class="card-body">Morning breath and cold water, evening sit. Two silent retreats a year, no instruments.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Ethics</h2>
-          <p class="card-body">Insured, supervised, and clear about what sound does and does not do. No medical claims.</p>
-        </article>
+    <!-- Why practice matters — one sentence, a whole section. -->
+    <section class="section-air wrap-md" style="padding-top: calc(var(--space-8) * 1.6)">
+      <p class="statement">Daily practice is the only reason <span class="quiet">any of the rest of it holds.</span></p>
+      <p class="statement-follow">A gong can open a room in minutes. What makes that safe is not the instrument but the person holding it &mdash; and that person is made slowly, one ordinary morning at a time.</p>
+    </section>
+
+    <!-- The practice — a day, dawn to dusk. -->
+    <section class="section wrap-md" style="padding-top: 0">
+      <div class="editorial-split editorial-split-even">
+        <div style="border-top: 1px solid var(--color-divider); padding-top: var(--space-6)">
+          <span class="eyebrow">First light</span>
+          <h2 class="split-title" style="margin-bottom: var(--space-4)">Breath and cold water</h2>
+          <p class="split-body">Breathwork before anything else, then cold water. It sets the nervous system I bring to everyone I meet that day.</p>
+        </div>
+        <div style="border-top: 1px solid var(--color-divider); padding-top: var(--space-6)">
+          <span class="eyebrow">Dusk</span>
+          <h2 class="split-title" style="margin-bottom: var(--space-4)">Sitting, and silence</h2>
+          <p class="split-body">An evening sit, and twice a year a silent retreat with no instruments at all &mdash; a long apprenticeship in listening to what a room needs rather than what I planned.</p>
+        </div>
       </div>
     </section>
 
+    <!-- Ethics — given the heaviest visual weight on the page. -->
+    <section class="audio-feature" aria-labelledby="ethics-title">
+      <div class="wrap-md">
+        <span class="eyebrow" id="ethics-title">Ethics</span>
+        <ul class="word-stack ethics-stack" style="margin-top: var(--space-6)">
+          <li>Insured.</li>
+          <li>Supervised.</li>
+          <li>No medical claims.</li>
+        </ul>
+        <p class="statement-follow" style="color: color-mix(in srgb, var(--color-neutral-100) 72%, transparent)">Clear about what sound does and does not do. Sound can support; it does not diagnose or treat. When someone needs more than a sound bath, I say so, and I know who to point them to. Trauma-aware practice shapes how every session is held.</p>
+      </div>
+    </section>
+
+    <!-- Training — credentials, as a short ruled list. -->
+    <section class="section wrap-md">
+      <div class="section-intro"><span class="eyebrow">Training</span></div>
+      <ul class="ruled-list">
+        <li><h2 class="ruled-term">Gong &amp; therapeutic sound</h2><p class="ruled-desc">Certified practitioner.</p><span class="ruled-meta">2019</span></li>
+        <li><h2 class="ruled-term">Trauma-aware facilitation</h2><p class="ruled-desc">Ongoing study, under supervision.</p><span class="ruled-meta">Continuing</span></li>
+        <li><h2 class="ruled-term">Silent retreat</h2><p class="ruled-desc">Two a year, without instruments.</p><span class="ruled-meta">Twice yearly</span></li>
+      </ul>
+    </section>
+
+    <!-- Mentoring — what is shared, and the path through it. -->
+    <section class="section wrap-md" style="padding-top: 0">
+      <div class="editorial-split">
+        <div>
+          <span class="eyebrow">Mentoring</span>
+          <h2 class="split-title">For practitioners who want a practice that lasts</h2>
+          <p class="split-body" style="margin-top: var(--space-6)">For sound practitioners, musicians and facilitators who want to hold rooms well &mdash; and a livelihood that does not quietly consume them.</p>
+        </div>
+        <ol class="process process-vertical" style="margin-top: 0">
+          <li><span class="process-num">01</span><span class="process-name">Foundation</span><p class="process-text">Listening to a room. Instruments and the body. Scope, and what not to promise.</p></li>
+          <li><span class="process-num">02</span><span class="process-name">Practice</span><p class="process-text">Building a daily practice that you will actually keep.</p></li>
+          <li><span class="process-num">03</span><span class="process-name">Integration</span><p class="process-text">Holding groups, with feedback on real sessions.</p></li>
+          <li><span class="process-num">04</span><span class="process-name">Ongoing</span><p class="process-text">Pricing, boundaries, and the business of the work, over time.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ — questions, answered plainly. -->
+    <section class="section wrap-sm" style="padding-top: 0">
+      <div class="section-intro"><span class="eyebrow">Questions</span></div>
+      <div class="faq">
+        <details><summary>Do I need to already be a practitioner?</summary><p>No, but you need a practice of some kind, and a reason. Tell me where you are and we&rsquo;ll see whether this is the right step.</p></details>
+        <details><summary>Is this a certification?</summary><p>No. Mentoring sits alongside formal training rather than replacing it. If you need a certification, I&rsquo;ll point you to where I trained.</p></details>
+        <details><summary>How does it run?</summary><p>One to one, at a pace that fits your life. We agree the shape together after a first conversation.</p></details>
+        <details><summary>What does it cost?</summary><p>It depends on the shape we agree. Write to me and I&rsquo;ll be straightforward about it.</p></details>
+      </div>
+    </section>
+
+    <section class="final-invitation">
+      <div class="wrap-sm">
+        <p class="statement">Start with a conversation.</p>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="#contact">Enquire about mentoring</a></div>
+      </div>
+    </section>
   </main>
+
+  <!-- Ways in — the hero's three doors, on every page. -->
+  <section class="ways-strip" aria-label="Ways in">
+    <div class="ways-strip-inner">
+      <a class="ways-strip-item" href="https://cal.com/alexanderalma/90mins" data-cal-link="alexanderalma/90mins" rel="noopener">
+        <span class="ways-strip-kicker">One to one &middot; 90 minutes</span>
+        <span class="ways-strip-name">Book a session&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">
+        <span class="ways-strip-kicker">The community &middot; free</span>
+        <span class="ways-strip-name">Join Sacred Playground&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">
+        <span class="ways-strip-kicker">Inspired by the music?</span>
+        <span class="ways-strip-name">Support on Patreon&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
   <section id="contact" class="contact">
     <div class="contact-grid">
@@ -76,14 +164,14 @@
         <p class="contact-lede">Tell me what you&rsquo;re holding &mdash; a date, a room, a group, or just a sense that something needs to shift. I answer everything myself, usually within two days.</p>
       </div>
       <div>
-        <form class="contact-form" data-to="hello@alexander.art">
+        <form class="contact-form" data-to="presence@alexanderalma.com">
           <label class="visually-hidden" for="contact-email">Your email address</label>
           <input class="input" id="contact-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required />
           <button class="btn btn-primary" type="submit">Send</button>
         </form>
         <p class="form-status" role="status" aria-live="polite"></p>
         <dl class="contact-detail" style="margin-top: var(--space-8)">
-          <div><dt>Email</dt><dd><a href="mailto:hello@alexander.art">hello@alexander.art</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:presence@alexanderalma.com">presence@alexanderalma.com</a></dd></div>
           <div><dt>Based</dt><dd>Dandenong Ranges, Victoria &mdash; travelling for retreats and festivals</dd></div>
           <div><dt>Response</dt><dd>Within two days, personally</dd></div>
         </dl>
@@ -98,12 +186,14 @@
         <a href="sound-healer.html">Sound Healer</a>
         <a href="musician.html">Musician</a>
         <a href="#contact">Contact</a>
+        <a href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">Sacred Playground</a>
+        <a href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">Patreon</a>
         <a href="https://instagram.com" rel="me noopener">Instagram</a>
         <a href="https://open.spotify.com" rel="me noopener">Spotify</a>
       </nav>
     </div>
   </footer>
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=20260925f"></script>
 </body>
 </html>

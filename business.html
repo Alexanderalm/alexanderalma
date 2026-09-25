@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,56 +17,148 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/organic.css" />
-<link rel="stylesheet" href="css/palette.css" />
-<link rel="stylesheet" href="css/site.css" />
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+<link rel="stylesheet" href="css/organic.css?v=20260925f" />
+<link rel="stylesheet" href="css/palette.css?v=20260925f" />
+<link rel="stylesheet" href="css/site.css?v=20260925f" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="ground grain">
+<div class="ground grain ground-ochre">
   <header class="site-header">
-    <nav class="nav site-nav" data-open="false" aria-label="Main">
+    <nav class="site-nav" data-open="false" aria-label="Main">
       <a class="nav-brand" href="index.html">Alexander</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle menu">Menu</button>
-      <div class="nav-collapse">
-          <a href="sound-healer.html">Sound Healer</a>
-          <a href="musician.html">Musician</a>
-          <span class="nav-roots">
-            <a href="business.html" aria-current="page">Business</a>
-            <a href="practitioner.html">Practitioner</a>
-            <a href="facilitator.html">Facilitator</a>
-          </span>
-          <a class="btn btn-primary btn-md nav-cta" href="#contact">Go Deeper!</a>
+      <span class="nav-context" aria-hidden="true">Business</span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-label">Menu</span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav-collapse" id="site-menu">
+        <div class="nav-collapse-inner">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="sound-healer.html">Sound Healer</a></li>
+            <li class="nav-item"><a class="nav-link" href="musician.html">Musician</a></li>
+            <li class="nav-item nav-item-root nav-item-first-root"><a class="nav-link" href="business.html" aria-current="page">Business</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="practitioner.html">Practitioner</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="facilitator.html">Facilitator</a></li>
+          </ul>
+          <a class="nav-cta" href="#contact">Go Deeper!</a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main id="main" class="rise">
-    <section class="wrap-md" style="padding-block: calc(var(--space-8) * 2) var(--space-8)">
+    <!-- Hero: structured — proposition left, the practical claim right. -->
+    <section class="wrap-md page-open">
       <p class="back-link"><a href="index.html#ways">&larr; All the work</a></p>
-      <span class="eyebrow">Root</span>
-      <h1 class="page-title">Business</h1>
-      <p class="lede">The practical ground. Fifteen years building and running small ventures before this work became the work &mdash; which means retreats run on time, invoices arrive, and organisations get a partner who understands a budget as well as a breath.</p>
-    </section>
-
-    <section class="wrap-md section">
-      <div class="card-grid">
-        <article class="card card-soft">
-          <h2 class="card-title">Corporate wellbeing programmes</h2>
-          <p class="card-body">Recurring sessions for teams, delivered on site or at a venue. Quarterly reporting if you need it.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Retreat design &amp; operations</h2>
-          <p class="card-body">Programme, pricing, venue and logistics for organisers who have the vision but not the spreadsheet.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Mentoring practitioners</h2>
-          <p class="card-body">For healers and musicians who want a livelihood that does not quietly consume them.</p>
-        </article>
+      <div class="editorial-split" style="align-items: end">
+        <div>
+          <span class="eyebrow">Business</span>
+          <h1 class="page-statement" style="margin-top: var(--space-4)">Sound and human connection, inside organisations.</h1>
+        </div>
+        <p class="lede" style="margin: 0">For teams that are tired, organisers who need a partner, and leaders who want the quiet back &mdash; delivered by someone who understands a budget as well as a breath.</p>
       </div>
     </section>
 
+    <!-- The problem — four words, given room. -->
+    <section class="section wrap-md">
+      <span class="eyebrow">What organisations bring me</span>
+      <ul class="word-stack" style="margin-top: var(--space-6)">
+        <li>Stress.</li>
+        <li>Disconnection.</li>
+        <li>Burnout.</li>
+        <li>Fragmented teams.</li>
+      </ul>
+    </section>
+
+    <!-- The approach — the methodology, in prose. -->
+    <section class="section wrap-md" style="padding-top: 0">
+      <div class="editorial-split">
+        <div>
+          <span class="eyebrow">The approach</span>
+          <h2 class="split-title">Slow the room down first. Then talk.</h2>
+        </div>
+        <div class="prose">
+          <p class="prose-lead">Fifteen years building and running small ventures came before this work, so I design sessions the way I&rsquo;d want a supplier to: clear brief, clear outcome, on time.</p>
+          <p>Every session starts with sound to settle the nervous system, then moves into structured conversation or reflection while people are actually present. Retreats run on time. Invoices arrive. Quarterly reporting if you need it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where it works — a ruled list, with who it serves. -->
+    <section class="section wrap-md" style="padding-top: 0">
+      <div class="section-intro"><span class="eyebrow">Where it works</span></div>
+      <ul class="ruled-list">
+        <li><h2 class="ruled-term">Corporate wellbeing</h2><p class="ruled-desc">Recurring sessions for teams, on site or at a venue.</p><span class="ruled-meta">Ongoing</span></li>
+        <li><h2 class="ruled-term">Retreats</h2><p class="ruled-desc">Programme, pricing, venue and logistics for organisers who have the vision but not the spreadsheet.</p><span class="ruled-meta">Design &amp; operations</span></li>
+        <li><h2 class="ruled-term">Leadership</h2><p class="ruled-desc">Time out of the room for people who hold everyone else&rsquo;s decisions.</p><span class="ruled-meta">Small groups</span></li>
+        <li><h2 class="ruled-term">Team gatherings</h2><p class="ruled-desc">Away days and offsites with movement, sound and conversation built in.</p><span class="ruled-meta">Half or full day</span></li>
+      </ul>
+    </section>
+
+    <!-- Experience — what it looks like, full width. -->
+    <figure class="media-feature">
+      <div class="media-frame" data-placeholder="A team session — chairs pushed back, people on mats, a gong at the front of a meeting room"></div>
+      <figcaption>
+        <span>In practice</span>
+        <p>A typical session: ten minutes of framing, forty of sound, twenty of structured conversation. People go back to their desks quieter, and usually talking to each other.</p>
+      </figcaption>
+    </figure>
+
+    <!-- Formats — a scale, not a price list. -->
+    <section class="section wrap-md">
+      <div class="section-intro section-intro-split">
+        <div>
+          <span class="eyebrow">Formats</span>
+          <h2 class="section-title">From an hour to a weekend</h2>
+        </div>
+        <p>Every format is quoted to the brief. Tell me the group, the place and what you hope changes.</p>
+      </div>
+      <ol class="process">
+        <li><span class="process-num">60&ndash;90 min</span><span class="process-name">Short session</span><p class="process-text">A single sound session, in the office or nearby.</p></li>
+        <li><span class="process-num">Half day</span><span class="process-name">Half day</span><p class="process-text">Sound, movement and one facilitated conversation.</p></li>
+        <li><span class="process-num">Full day</span><span class="process-name">Full day</span><p class="process-text">An away day designed with you, opening to close.</p></li>
+        <li><span class="process-num">2&ndash;3 days</span><span class="process-name">Retreat</span><p class="process-text">Designed and run end to end, or sound woven into yours.</p></li>
+      </ol>
+    </section>
+
+    <!-- Who it's for — short, typographic. -->
+    <section class="band band-tight">
+      <div class="wrap-md editorial-split editorial-split-center">
+        <span class="eyebrow">Who it is for</span>
+        <p class="statement statement-sm" style="color: var(--color-neutral-100)">HR and people teams. Leadership groups. Retreat organisers. <span style="color: var(--color-accent-300)">Event producers.</span></p>
+      </div>
+    </section>
+
+    <!-- A case study belongs here once there is a real one to tell. -->
+
+    <section class="final-invitation">
+      <div class="wrap-sm">
+        <p class="statement">Tell me about your team.</p>
+        <p class="statement-follow">A date, a group size, and what you&rsquo;d like to be different afterwards. I reply personally, usually within two days.</p>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="#contact">Start an enquiry</a></div>
+      </div>
+    </section>
   </main>
+
+  <!-- Ways in — the hero's three doors, on every page. -->
+  <section class="ways-strip" aria-label="Ways in">
+    <div class="ways-strip-inner">
+      <a class="ways-strip-item" href="https://cal.com/alexanderalma/90mins" data-cal-link="alexanderalma/90mins" rel="noopener">
+        <span class="ways-strip-kicker">One to one &middot; 90 minutes</span>
+        <span class="ways-strip-name">Book a session&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">
+        <span class="ways-strip-kicker">The community &middot; free</span>
+        <span class="ways-strip-name">Join Sacred Playground&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">
+        <span class="ways-strip-kicker">Inspired by the music?</span>
+        <span class="ways-strip-name">Support on Patreon&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
   <section id="contact" class="contact">
     <div class="contact-grid">
@@ -76,14 +168,14 @@
         <p class="contact-lede">Tell me what you&rsquo;re holding &mdash; a date, a room, a group, or just a sense that something needs to shift. I answer everything myself, usually within two days.</p>
       </div>
       <div>
-        <form class="contact-form" data-to="hello@alexander.art">
+        <form class="contact-form" data-to="presence@alexanderalma.com">
           <label class="visually-hidden" for="contact-email">Your email address</label>
           <input class="input" id="contact-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required />
           <button class="btn btn-primary" type="submit">Send</button>
         </form>
         <p class="form-status" role="status" aria-live="polite"></p>
         <dl class="contact-detail" style="margin-top: var(--space-8)">
-          <div><dt>Email</dt><dd><a href="mailto:hello@alexander.art">hello@alexander.art</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:presence@alexanderalma.com">presence@alexanderalma.com</a></dd></div>
           <div><dt>Based</dt><dd>Dandenong Ranges, Victoria &mdash; travelling for retreats and festivals</dd></div>
           <div><dt>Response</dt><dd>Within two days, personally</dd></div>
         </dl>
@@ -98,12 +190,14 @@
         <a href="sound-healer.html">Sound Healer</a>
         <a href="musician.html">Musician</a>
         <a href="#contact">Contact</a>
+        <a href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">Sacred Playground</a>
+        <a href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">Patreon</a>
         <a href="https://instagram.com" rel="me noopener">Instagram</a>
         <a href="https://open.spotify.com" rel="me noopener">Spotify</a>
       </nav>
     </div>
   </footer>
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=20260925f"></script>
 </body>
 </html>

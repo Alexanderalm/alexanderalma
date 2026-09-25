@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,70 +17,148 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/organic.css" />
-<link rel="stylesheet" href="css/palette.css" />
-<link rel="stylesheet" href="css/site.css" />
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+<link rel="stylesheet" href="css/organic.css?v=20260925f" />
+<link rel="stylesheet" href="css/palette.css?v=20260925f" />
+<link rel="stylesheet" href="css/site.css?v=20260925f" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="ground grain">
+<div class="ground grain ground-ochre">
   <header class="site-header">
-    <nav class="nav site-nav" data-open="false" aria-label="Main">
+    <nav class="site-nav" data-open="false" aria-label="Main">
       <a class="nav-brand" href="index.html">Alexander</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle menu">Menu</button>
-      <div class="nav-collapse">
-          <a href="sound-healer.html">Sound Healer</a>
-          <a href="musician.html" aria-current="page">Musician</a>
-          <span class="nav-roots">
-            <a href="business.html">Business</a>
-            <a href="practitioner.html">Practitioner</a>
-            <a href="facilitator.html">Facilitator</a>
-          </span>
-          <a class="btn btn-primary btn-md nav-cta" href="#contact">Go Deeper!</a>
+      <span class="nav-context" aria-hidden="true">Musician</span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-label">Menu</span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav-collapse" id="site-menu">
+        <div class="nav-collapse-inner">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="sound-healer.html">Sound Healer</a></li>
+            <li class="nav-item"><a class="nav-link" href="musician.html" aria-current="page">Musician</a></li>
+            <li class="nav-item nav-item-root nav-item-first-root"><a class="nav-link" href="business.html">Business</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="practitioner.html">Practitioner</a></li>
+            <li class="nav-item nav-item-root"><a class="nav-link" href="facilitator.html">Facilitator</a></li>
+          </ul>
+          <a class="nav-cta" href="#contact">Go Deeper!</a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main id="main" class="rise">
-    <section class="wrap-md" style="padding-block: calc(var(--space-8) * 2) var(--space-8)">
+    <!-- Hero: a short line, then the widest image on the site. -->
+    <section class="wrap-md page-open" style="padding-bottom: var(--space-8)">
       <p class="back-link"><a href="index.html#ways">&larr; All the work</a></p>
-      <span class="eyebrow">Branch</span>
-      <h1 class="page-title">Musician</h1>
-      <p class="lede">Two guitars &mdash; one nylon-string, one electro-acoustic &mdash; a loop pedal and a voice. Songs that sit somewhere between folk and devotional. I play listening rooms, festival side stages, ceremonies and weddings, solo or with a percussionist.</p>
+      <span class="eyebrow">Musician</span>
+      <h1 class="page-statement" style="margin-top: var(--space-4)">Songs for rooms that want to be changed.</h1>
     </section>
+    <figure class="media-feature media-feature-tall">
+      <div class="media-frame" data-placeholder="Live set under the gums, Olinda — wide, dusk, the whole stage and the trees above it"></div>
+      <figcaption><span>Live, Olinda</span><span>Nylon-string &middot; electro-acoustic &middot; loop pedal &middot; voice</span></figcaption>
+    </figure>
 
-    <section class="wrap-md section-tight">
-      <div class="media-pair">
-        <figure class="media-frame media-half" data-placeholder="Live set under the gums, Olinda"></figure>
-        <figure class="media-frame media-half" data-placeholder="Guitar in autumn light, Mount Dandenong"></figure>
+    <!-- Listen — the audio is the hero of this page. -->
+    <section id="listen" class="audio-feature" style="margin-top: calc(var(--space-8) * 2)">
+      <div class="wrap-md">
+        <span class="eyebrow">Listen</span>
+        <p class="statement" style="margin-top: var(--space-4)">Somewhere between folk <span class="quiet">and devotional.</span></p>
+        <div class="media-frame" style="aspect-ratio: 16 / 5; margin-top: calc(var(--space-8) * 1.4)"
+             data-placeholder="Player — drop a Bandcamp, SoundCloud or Spotify embed (iframe) in here"></div>
+        <p class="audio-note">Recordings are on their way. Until then, the closest thing is a live set.</p>
       </div>
     </section>
 
-    <section class="wrap-md section">
-      <div class="card-grid">
-        <article class="card card-soft">
-          <h2 class="card-title">Live sets</h2>
-          <p class="card-body">45 or 75 minutes. Full rider and stage plot on request; I can also play entirely unamplified.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Ceremony &amp; ritual</h2>
-          <p class="card-body">Music held around a moment &mdash; handfastings, namings, funerals. Written for the people in the room.</p>
-        </article>
-        <article class="card card-soft">
-          <h2 class="card-title">Collaboration</h2>
-          <p class="card-body">Session playing, scoring, and sound design for film and movement work. Always open to a conversation.</p>
-        </article>
+    <!-- Live — image pair with the practical truth beside it. -->
+    <section class="section wrap-md">
+      <div class="editorial-split editorial-split-reverse">
+        <div class="media-pair">
+          <figure class="media-frame media-tall" data-placeholder="Guitar in autumn light, Mount Dandenong"></figure>
+          <figure class="media-frame media-tall" data-placeholder="Festival side stage, crowd sitting on the grass"></figure>
+        </div>
+        <div class="prose">
+          <span class="eyebrow">Live</span>
+          <h2 class="split-title" style="margin-bottom: var(--space-6)">Listening rooms, side stages, the space between sets</h2>
+          <p class="prose-lead">Sets of 45 or 75 minutes, solo or with a percussionist.</p>
+          <p>Full rider and stage plot on request. I can also play entirely unamplified, which some rooms need more than others.</p>
+        </div>
       </div>
     </section>
 
-    <section class="band band-tight">
-      <div class="split">
-        <p>Booking for the 2026 festival season.</p>
-        <a class="btn btn-primary btn-lg" href="#contact">Go Deeper!</a>
+    <!-- Ceremony — type only; the moment matters more than the picture. -->
+    <section class="section-air wrap-md" style="padding-top: var(--space-8)">
+      <span class="eyebrow">Ceremony</span>
+      <p class="statement" style="margin-top: var(--space-4)">Music held around a moment <span class="quiet">&mdash; handfastings, namings, funerals.</span></p>
+      <p class="statement-follow">Written for the people in the room rather than chosen from a list. We talk first about who is gathering and why, and the music follows that.</p>
+    </section>
+
+    <!-- Collaboration — who I work with, as a list. -->
+    <section class="section wrap-md" style="padding-top: 0">
+      <div class="section-intro">
+        <span class="eyebrow">Collaboration</span>
+        <h2 class="section-title">Always open to a conversation</h2>
+      </div>
+      <ul class="ruled-list">
+        <li><h3 class="ruled-term">Session playing</h3><p class="ruled-desc">Nylon-string and acoustic guitar for other artists&rsquo; records and live shows.</p><span class="ruled-meta">Studio &middot; stage</span></li>
+        <li><h3 class="ruled-term">Scoring</h3><p class="ruled-desc">Music for film, from short documentary to longer work.</p><span class="ruled-meta">Film</span></li>
+        <li><h3 class="ruled-term">Sound design</h3><p class="ruled-desc">Gong, bowl and guitar textures for movement, dance and theatre.</p><span class="ruled-meta">Movement work</span></li>
+      </ul>
+    </section>
+
+    <!-- Selected work & video — large media, minimal words. -->
+    <section class="band">
+      <div class="wrap-md">
+        <span class="eyebrow">Selected work</span>
+        <div class="media-frame media-hero" style="margin-top: var(--space-6)"
+             data-placeholder="Video — a live performance, embedded (YouTube or Vimeo)"></div>
+        <p class="band-body" style="margin-top: var(--space-6)">Releases and recordings will be listed here as they come out.</p>
       </div>
     </section>
 
+    <!-- Events — where to hear it next. -->
+    <section class="section wrap-md">
+      <span class="eyebrow">Upcoming</span>
+      <ul class="events">
+        <li><div class="event">
+          <span class="event-date">12 Dec</span>
+          <h3 class="event-name">Live Set &mdash; Solstice Eve</h3>
+          <span class="event-where">Frome &middot; Cheese &amp; Grain</span>
+          <a class="btn btn-secondary" href="#contact">Tickets</a>
+        </div></li>
+      </ul>
+    </section>
+
+    <section class="final-invitation band">
+      <div class="wrap-sm">
+        <span class="eyebrow">Book Alexander</span>
+        <p class="statement" style="margin-top: var(--space-4); color: var(--color-neutral-100)">Booking now for the 2026 festival season.</p>
+        <p class="statement-follow" style="color: color-mix(in srgb, var(--color-neutral-100) 76%, transparent)">Festivals, venues, weddings and ceremonies. Send a date, a place and a sense of the room.</p>
+        <div class="actions">
+          <a class="btn btn-onphoto btn-lg" href="#contact">Enquire about a date</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Ways in — the hero's three doors, on every page. -->
+  <section class="ways-strip" aria-label="Ways in">
+    <div class="ways-strip-inner">
+      <a class="ways-strip-item" href="https://cal.com/alexanderalma/90mins" data-cal-link="alexanderalma/90mins" rel="noopener">
+        <span class="ways-strip-kicker">One to one &middot; 90 minutes</span>
+        <span class="ways-strip-name">Book a session&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">
+        <span class="ways-strip-kicker">The community &middot; free</span>
+        <span class="ways-strip-name">Join Sacred Playground&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="ways-strip-item" href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">
+        <span class="ways-strip-kicker">Inspired by the music?</span>
+        <span class="ways-strip-name">Support on Patreon&nbsp;<span aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+  </section>
 
   <section id="contact" class="contact">
     <div class="contact-grid">
@@ -90,14 +168,14 @@
         <p class="contact-lede">Tell me what you&rsquo;re holding &mdash; a date, a room, a group, or just a sense that something needs to shift. I answer everything myself, usually within two days.</p>
       </div>
       <div>
-        <form class="contact-form" data-to="hello@alexander.art">
+        <form class="contact-form" data-to="presence@alexanderalma.com">
           <label class="visually-hidden" for="contact-email">Your email address</label>
           <input class="input" id="contact-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required />
           <button class="btn btn-primary" type="submit">Send</button>
         </form>
         <p class="form-status" role="status" aria-live="polite"></p>
         <dl class="contact-detail" style="margin-top: var(--space-8)">
-          <div><dt>Email</dt><dd><a href="mailto:hello@alexander.art">hello@alexander.art</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:presence@alexanderalma.com">presence@alexanderalma.com</a></dd></div>
           <div><dt>Based</dt><dd>Dandenong Ranges, Victoria &mdash; travelling for retreats and festivals</dd></div>
           <div><dt>Response</dt><dd>Within two days, personally</dd></div>
         </dl>
@@ -112,12 +190,14 @@
         <a href="sound-healer.html">Sound Healer</a>
         <a href="musician.html">Musician</a>
         <a href="#contact">Contact</a>
+        <a href="https://alexander-alma.mn.co/spaces/25129475/about" rel="noopener">Sacred Playground</a>
+        <a href="https://www.patreon.com/profile/creators?u=227957515" rel="noopener">Patreon</a>
         <a href="https://instagram.com" rel="me noopener">Instagram</a>
         <a href="https://open.spotify.com" rel="me noopener">Spotify</a>
       </nav>
     </div>
   </footer>
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=20260925f"></script>
 </body>
 </html>
