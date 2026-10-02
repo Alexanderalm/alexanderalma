@@ -65,271 +65,41 @@ body { overflow-x: clip; -webkit-font-smoothing: antialiased; }
 .btn-outline-light { border: 1px solid color-mix(in srgb, #fff 55%, transparent); color: #fff; }
 .btn-outline-light:hover { background: color-mix(in srgb, #fff 14%, transparent); }
 
-/* ═════════════════════════════════════════════════════════════════════════
-   HEADER — Alexander's navigation
-   One composed object, read left to right: who (the name), the work (two
-   branches · three roots), and the way in (Go Deeper). Hairlines, not boxes,
-   divide the three, so the eye travels along a single line.
-
-   The material is mist over stone. Two tint layers sit behind the bar and
-   cross-fade, because gradients themselves cannot transition:
-     ::before  hero mist   — night-forest tint, a breath of guitar warmth
-     ::after   stone frost — the page ground, frosted
-   Over the hero photograph the mist shows; once the page scrolls past it
-   (js/site.js toggles .is-scrolled) the frost fades in and the ink goes dark.
-   Every colour below is a token from organic.css or a mix of one.
-   ═════════════════════════════════════════════════════════════════════════ */
-.site-header {
-  position: sticky; top: 0; z-index: 50;
-  height: var(--header-h);             /* the bar may unfold below; the page never moves */
-  max-width: 1180px; margin-inline: auto;
-  padding: 12px var(--space-6) 0;
-  pointer-events: none;                /* only the bar itself takes clicks */
+/* — compact shared navigation — */
+.site-header { position:sticky; top:0; z-index:50; width:100%; height:var(--header-h); margin:0; padding:0 clamp(14px,3vw,40px); pointer-events:none; }
+.site-nav { --nav-ink:var(--color-text); --nav-ink-soft:color-mix(in srgb,var(--color-text) 82%,transparent); --nav-rule:color-mix(in srgb,var(--color-text) 18%,transparent); --nav-accent:var(--color-accent-700); position:relative; isolation:isolate; pointer-events:auto; display:flex; align-items:center; justify-content:center; gap:clamp(20px,3vw,38px); width:max-content; max-width:100%; height:calc(100% - 14px); margin:7px auto; padding:0 22px; border:1px solid var(--nav-rule); border-radius:3px; box-shadow:0 12px 30px -24px rgba(0,0,0,.45); }
+.site-nav::before { content:''; position:absolute; z-index:-1; inset:0; border-radius:inherit; background:linear-gradient(180deg,color-mix(in srgb,var(--color-bg) 95%,transparent),color-mix(in srgb,var(--color-bg) 83%,transparent)); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); pointer-events:none; }
+.js .site-header-over:not(.is-scrolled) .site-nav { --nav-ink:#fff; --nav-ink-soft:rgba(255,255,255,.88); --nav-rule:rgba(255,255,255,.24); --nav-accent:#fff; }
+.js .site-header-over:not(.is-scrolled) .site-nav::before { background:linear-gradient(180deg,rgba(20,24,19,.34),rgba(20,24,19,.12)); }
+.nav-home { flex:none; order:0; display:flex; align-items:center; gap:8px; color:var(--nav-ink); text-decoration:none; white-space:nowrap; }
+.nav-home img { display:block; width:31px; height:40px; object-fit:contain; }.nav-home span { font-family:var(--font-heading); font-size:15px; font-weight:500; letter-spacing:.025em; }.nav-home:hover { color:var(--nav-accent); }
+.nav-collapse,.nav-collapse-inner { display:flex; align-items:center; }
+.nav-list { display:flex; align-items:center; gap:clamp(16px,2.2vw,30px); list-style:none; margin:0; padding:0; }
+.nav-item { display:flex; align-items:center; white-space:nowrap; }
+.nav-link { position:relative; display:inline-block; padding:8px 0; color:var(--nav-ink-soft); font-size:13px; font-weight:450; letter-spacing:.025em; text-decoration:none; transition:color .25s ease; }
+.nav-link:hover,.nav-link[aria-current='page'] { color:var(--nav-ink); }
+.nav-link::after { content:''; position:absolute; left:0; right:0; bottom:2px; height:1px; background:var(--nav-accent); transform:scaleX(0); transition:transform .25s ease; }
+.nav-link:hover::after,.nav-link[aria-current='page']::after { transform:scaleX(1); }
+.site-nav :focus-visible { outline:2px solid var(--nav-accent); outline-offset:4px; border-radius:2px; }
+.nav-toggle { display:none; }
+.nav-menu { position:relative; display:flex; align-items:center; }.nav-menu > summary { list-style:none; cursor:pointer; }.nav-menu > summary::-webkit-details-marker { display:none; }.nav-menu > summary::before { content:none; }.nav-menu > summary::after { content:'⌄'; display:inline-block; margin-left:6px; font-size:12px; transition:transform .2s ease; }.nav-menu[open] > summary::after { transform:rotate(180deg); }.nav-menu[open] > summary,.nav-link.current { color:var(--nav-ink); }.nav-current-menu { position:relative; }.nav-current-menu .nav-menu { position:static; width:auto; }.nav-menu > .nav-menu-trigger { width:19px; height:30px; padding:0; }
+.nav-submenu { position:absolute; z-index:40; top:calc(100% + 14px); left:0; min-width:250px; display:grid; gap:0; padding:8px; background:var(--color-bg); border:1px solid var(--color-divider); box-shadow:0 14px 35px rgba(20,20,16,.2); }
+.nav-submenu a { display:block; padding:10px 12px; color:var(--color-text); font-size:14px; line-height:1.35; text-decoration:none; }.nav-submenu a:hover,.nav-submenu a:focus-visible { background:var(--color-surface); color:var(--color-accent-700); }.nav-menu:not([open]) .nav-submenu { display:none; }.nav-menu[open] .nav-submenu { display:grid; }
+@media (max-width:1100px) {
+ .ground { --header-h:60px; }.site-header { height:auto; min-height:60px; padding:0 16px; }.site-nav { width:100%; max-width:none; min-height:60px; height:auto; margin:0; padding:0; display:grid; grid-template-columns:1fr auto 1fr; grid-template-rows:60px auto; gap:0; border:0; border-radius:0; box-shadow:none; }.site-nav::before { inset:0 -16px; border-radius:0; border-bottom:1px solid var(--nav-rule); }
+ .nav-home { grid-column:1; grid-row:1; justify-self:start; gap:7px; }.nav-home img { width:29px; height:36px; }.nav-home span { font-size:14px; }
+ .nav-toggle { grid-column:3; grid-row:1; justify-self:end; display:inline-flex; align-items:center; gap:8px; height:36px; padding:0 10px; background:transparent; color:var(--nav-ink); border:1px solid var(--nav-rule); border-radius:2px; font:500 10px var(--font-body); letter-spacing:.14em; text-transform:uppercase; cursor:pointer; }
+ .nav-toggle-icon { position:relative; width:14px; height:7px; }.nav-toggle-icon::before,.nav-toggle-icon::after { content:''; position:absolute; left:0; right:0; height:1px; background:currentColor; transition:transform .25s ease,top .25s ease; }.nav-toggle-icon::before { top:0; }.nav-toggle-icon::after { top:6px; }.nav-toggle[aria-expanded='true'] .nav-toggle-icon::before { top:3px; transform:rotate(45deg); }.nav-toggle[aria-expanded='true'] .nav-toggle-icon::after { top:3px; transform:rotate(-45deg); }
+ .nav-collapse { grid-column:1/-1; grid-row:2; display:grid; grid-template-rows:0fr; visibility:hidden; transition:grid-template-rows .35s ease,visibility 0s linear .35s; }.site-nav[data-open='true'] .nav-collapse { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .35s ease; }.nav-collapse-inner { min-height:0; overflow:hidden; display:block; opacity:0; transition:opacity .2s ease; }.site-nav[data-open='true'] .nav-collapse-inner { opacity:1; overflow:visible; padding:8px 0 15px; }
+ .nav-list { display:flex; flex-direction:column; align-items:stretch; gap:0; margin:0; padding:0; }.nav-item { min-height:48px; border-top:1px solid var(--nav-rule); }.nav-link { font-size:16px; }.nav-current-menu > .nav-link { flex:1; font-size:16px; }.nav-menu > .nav-menu-trigger { width:44px; height:46px; }
+ .nav-submenu { position:static; min-width:0; padding:5px 10px 10px; background:transparent; border:0; box-shadow:none; }.nav-submenu a { color:var(--nav-ink-soft); font-size:14px; padding:9px 4px; }
+ .no-js .site-header { height:auto; }.no-js .nav-toggle { display:none; }.no-js .nav-collapse { grid-template-rows:1fr; visibility:visible; }.no-js .nav-collapse-inner { opacity:1; }
 }
-@media (min-width: 900px) { .site-header { padding-inline: var(--space-8); } }
-
-.site-nav {
-  /* stone state — the default everywhere except over the hero */
-  --nav-ink:        var(--color-text);
-  --nav-ink-soft:   color-mix(in srgb, var(--color-text) 78%, transparent);
-  --nav-ink-faint:  color-mix(in srgb, var(--color-text) 60%, transparent);
-  --nav-accent:     var(--color-accent-700);
-  --nav-mark:       var(--color-accent-600);
-  --nav-rule:       color-mix(in srgb, var(--color-text) 14%, transparent);
-  --nav-edge:       color-mix(in srgb, #fff 55%, var(--color-divider));
-  --nav-focus:      var(--color-accent-700);
-  --nav-cta-bg:     var(--color-accent-700);
-  --nav-cta-bg-hi:  var(--color-accent-800);
-  --nav-cta-ink:    var(--color-bg);
-  --nav-cta-edge:   transparent;
-
-  pointer-events: auto;
-  position: relative; isolation: isolate;
-  display: flex; align-items: center;
-  width: fit-content; max-width: 100%; margin-inline: auto;
-  height: 64px;
-  padding: 0 8px 0 26px;
-  border: 1px solid var(--nav-edge);
-  border-radius: var(--radius-lg);
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, #fff 45%, transparent),
-    0 14px 30px -22px color-mix(in srgb, var(--palette-ink) 55%, transparent);
-  -webkit-backdrop-filter: blur(18px) saturate(130%);
-          backdrop-filter: blur(18px) saturate(130%);
-  transition:
-    border-color .5s ease, box-shadow .5s ease,
-    -webkit-backdrop-filter .5s ease, backdrop-filter .5s ease;
-}
-.site-nav::before,
-.site-nav::after {
-  content: ''; position: absolute; inset: 0; z-index: -1;
-  border-radius: inherit; pointer-events: none;
-  transition: opacity .5s ease;
-}
-.site-nav::before {                    /* hero mist */
-  opacity: 0;
-  background:
-    radial-gradient(120% 240% at 0% 0%, color-mix(in srgb, var(--color-accent-500) 10%, transparent), transparent 55%),
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--palette-ink) 32%, transparent),
-      color-mix(in srgb, var(--color-accent-2-900) 20%, transparent));
-}
-.site-nav::after {                     /* stone frost */
-  opacity: 1;
-  background: linear-gradient(180deg,
-    color-mix(in srgb, var(--color-bg) 86%, transparent),
-    color-mix(in srgb, var(--color-surface) 80%, transparent));
-}
-
-/* Over the hero photograph. Needs JS (the .js class is set in <head>), so
-   without it the bar simply stays frosted stone and always readable. An open
-   mobile menu is a panel of text, so it always takes the stone state. */
-.js .site-header-over:not(.is-scrolled) .site-nav:not([data-open='true']) {
-  --nav-ink:        #fff;
-  --nav-ink-soft:   color-mix(in srgb, #fff 86%, transparent);
-  --nav-ink-faint:  color-mix(in srgb, #fff 68%, transparent);
-  --nav-accent:     var(--color-accent-200);
-  --nav-mark:       var(--color-accent-300);
-  --nav-rule:       color-mix(in srgb, #fff 20%, transparent);
-  --nav-edge:       color-mix(in srgb, #fff 16%, transparent);
-  --nav-focus:      var(--color-accent-200);
-  --nav-cta-bg:     color-mix(in srgb, var(--color-accent-600) 46%, transparent);
-  --nav-cta-bg-hi:  color-mix(in srgb, var(--color-accent-600) 72%, transparent);
-  --nav-cta-ink:    #fff;
-  --nav-cta-edge:   color-mix(in srgb, var(--color-accent-300) 42%, transparent);
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, #fff 9%, transparent),
-    0 12px 30px -26px color-mix(in srgb, #000 70%, transparent);
-  -webkit-backdrop-filter: blur(10px) saturate(115%);
-          backdrop-filter: blur(10px) saturate(115%);
-}
-.js .site-header-over:not(.is-scrolled) .site-nav:not([data-open='true'])::before { opacity: 1; }
-.js .site-header-over:not(.is-scrolled) .site-nav:not([data-open='true'])::after  { opacity: 0; }
-
-/* — the name — */
-.nav-brand {
-  flex: none; margin-right: 0;         /* organic.css's .nav-brand pushes everything away with margin-right: auto */
-  font-family: var(--font-heading); font-weight: 500;
-  font-variation-settings: "SOFT" 0, "WONK" 0;
-  font-size: 22px; letter-spacing: 0; line-height: 1;
-  color: var(--nav-ink); text-decoration: none;
-  transition: color .4s ease;
-}
-.nav-brand:hover { color: color-mix(in srgb, var(--nav-ink) 70%, var(--nav-accent)); }
-.nav-context { display: none; }       /* mobile only: where you are, beside the name */
-
-/* — the work: two branches · three roots — */
-.nav-collapse, .nav-collapse-inner { display: flex; align-items: center; flex: none; min-width: 0; }
-.nav-list {
-  position: relative;
-  flex: none; display: flex; align-items: center;
-  gap: clamp(18px, 2vw, 30px);
-  list-style: none; margin: 0 clamp(18px, 2vw, 30px); padding: 0 clamp(18px, 2vw, 30px);
-}
-.nav-list::before,                     /* hairlines: name | work | way in */
-.nav-list::after {
-  content: ''; position: absolute; top: 50%; width: 1px; height: 22px;
-  margin-top: -11px; background: var(--nav-rule); transition: background-color .5s ease;
-}
-.nav-list::before { left: 0; }
-.nav-list::after  { right: 0; }
-.nav-item { display: flex; align-items: center; }
-.nav-item-first-root { gap: clamp(18px, 2vw, 30px); }
-.nav-item-first-root::before {         /* the step down from branches to roots */
-  content: ''; width: 1px; height: 11px; background: var(--nav-rule);
-  transition: background-color .5s ease;
-}
-.nav-link {
-  position: relative; display: inline-block;
-  padding-block: 6px;
-  font-size: 16px; font-weight: 400; letter-spacing: 0.005em; white-space: nowrap;
-  color: var(--nav-ink-soft); text-decoration: none;
-  transition: color .3s ease;
-}
-.nav-item-root .nav-link { color: var(--nav-ink-faint); }
-.nav-link::after {                     /* the hairline: faint on hover, full on the current page */
-  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
-  background: var(--nav-mark); opacity: 0;
-  transform: scaleX(0); transform-origin: 50% 50%;
-  transition: transform .35s cubic-bezier(.2,.7,.3,1), opacity .35s ease;
-}
-.nav-link:hover { color: color-mix(in srgb, var(--nav-ink) 72%, var(--nav-accent)); }
-.nav-link:hover::after { opacity: .5; transform: scaleX(1); }
-.nav-link[aria-current='page'] { color: var(--nav-ink); }
-.nav-link[aria-current='page']::after { opacity: 1; transform: scaleX(1); }
-
-/* — the way in — */
-.nav-cta {
-  flex: none; display: inline-flex; align-items: center; height: 48px;
-  padding: 0 24px;
-  font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--nav-cta-ink); background: var(--nav-cta-bg);
-  border: 1px solid var(--nav-cta-edge); border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: background-color .4s ease, border-color .4s ease, color .4s ease;
-}
-.nav-cta:hover { background: var(--nav-cta-bg-hi); }
-
-.site-nav :focus-visible { outline: 2px solid var(--nav-focus); outline-offset: 4px; border-radius: var(--radius-sm); }
-.nav-cta:focus-visible { outline-offset: 3px; }
-
-.nav-toggle { display: none; }
-
-/* No backdrop-filter: the tint layers carry the whole weight, opaque enough to read. */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .site-nav::after  { background: var(--color-bg); }
-  .site-nav::before { background: color-mix(in srgb, var(--palette-ink) 74%, transparent); }
-}
-
-/* ── mobile: a full-width glass header; the work unfolds beneath the name ── */
-@media (max-width: 999px) {
-  .ground { --header-h: 56px; }
-  .site-header { max-width: none; padding: 0; }
-  .site-nav {
-    width: 100%; height: auto; min-height: 56px; flex-wrap: wrap; align-items: stretch;
-    padding: 0 var(--space-6);
-    border-width: 0 0 1px; border-radius: 0;
-    box-shadow: 0 14px 30px -24px color-mix(in srgb, var(--palette-ink) 50%, transparent);
-  }
-  .nav-brand, .nav-context, .nav-toggle { align-self: center; }
-  .nav-brand { display: flex; align-items: center; min-height: 55px; }   /* + the 1px rule = 56 */
-  .nav-context {
-    display: flex; align-items: center; gap: 12px; min-width: 0; margin-left: 12px;
-    font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    color: var(--nav-ink-faint); transition: color .4s ease;
-  }
-  .nav-context::before { content: ''; flex: none; width: 1px; height: 14px; background: var(--nav-rule); }
-
-  .nav-toggle {
-    display: inline-flex; align-items: center; gap: 10px; flex: none;
-    margin-left: auto; height: 36px; padding: 0 12px;
-    background: transparent; color: var(--nav-ink);
-    border: 1px solid var(--nav-rule); border-radius: var(--radius-sm);
-    font-family: var(--font-body); font-size: 11px; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;
-    transition: color .4s ease, border-color .4s ease, background-color .3s ease;
-  }
-  .nav-toggle:hover { background: color-mix(in srgb, var(--nav-ink) 7%, transparent); }
-  .nav-toggle-icon { position: relative; width: 14px; height: 7px; }
-  .nav-toggle-icon::before,
-  .nav-toggle-icon::after {
-    content: ''; position: absolute; left: 0; right: 0; height: 1px; background: currentColor;
-    transition: transform .35s cubic-bezier(.2,.7,.3,1), top .35s cubic-bezier(.2,.7,.3,1);
-  }
-  .nav-toggle-icon::before { top: 0; }
-  .nav-toggle-icon::after  { top: 6px; }
-  .nav-toggle[aria-expanded='true'] .nav-toggle-icon::before { top: 3px; transform: rotate(45deg); }
-  .nav-toggle[aria-expanded='true'] .nav-toggle-icon::after  { top: 3px; transform: rotate(-45deg); }
-
-  /* The unfold: a grid row growing from 0fr to 1fr, so no height is guessed.
-     visibility keeps the closed links out of the tab order. */
-  .nav-collapse {
-    flex: 0 0 100%; display: grid; grid-template-rows: 0fr;
-    visibility: hidden;
-    transition: grid-template-rows .45s cubic-bezier(.2,.7,.3,1), visibility 0s linear .45s;
-  }
-  .site-nav[data-open='true'] .nav-collapse {
-    grid-template-rows: 1fr; visibility: visible;
-    transition: grid-template-rows .45s cubic-bezier(.2,.7,.3,1), visibility 0s;
-  }
-  .nav-collapse-inner {
-    min-height: 0; overflow: hidden;
-    flex-direction: column; align-items: stretch;
-    opacity: 0; transition: opacity .3s ease;
-  }
-  .site-nav[data-open='true'] .nav-collapse-inner {
-    opacity: 1; overflow-y: auto; max-height: calc(100dvh - 56px);
-  }
-  .nav-list {
-    flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
-    margin: 0; padding: 0; border-top: 1px solid var(--nav-rule);
-  }
-  .nav-list::before, .nav-list::after, .nav-item-first-root::before { display: none; }
-  .nav-item { min-height: 50px; }
-  .nav-item + .nav-item { border-top: 1px solid var(--nav-rule); }
-  .nav-item-first-root { margin-top: 10px; border-top-color: color-mix(in srgb, var(--color-text) 24%, transparent) !important; }
-  .nav-link { font-size: 18px; }
-  .nav-cta { align-self: flex-start; height: 46px; margin: var(--space-6) 0 var(--space-6); }
-}
-
-/* Without JS the toggle can do nothing, so the menu simply stays open. */
-@media (max-width: 999px) {
-  .no-js .site-header { height: auto; }
-  .no-js .nav-toggle { display: none; }
-  .no-js .nav-collapse { grid-template-rows: 1fr; visibility: visible; }
-  .no-js .nav-collapse-inner { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .site-nav, .site-nav::before, .site-nav::after,
-  .site-nav *, .site-nav *::before, .site-nav *::after { transition: none !important; }
-}
+@media (prefers-reduced-motion:reduce) { .site-nav *, .site-nav *::before,.site-nav *::after { transition:none!important; } }
 
 /* ── hero: the photograph carries the page ────────────────────────────── */
 .hero {
-  position: relative; min-height: min(88vh, 820px);
-  display: flex; align-items: flex-end;
+  position: relative; min-height: min(88vh, 820px); display:block;
   margin-top: calc(var(--header-h) * -1);   /* slide exactly under the transparent header */
   overflow: hidden;
 }
@@ -350,33 +120,17 @@ body { overflow-x: clip; -webkit-font-smoothing: antialiased; }
       color-mix(in srgb, var(--palette-ink) 62%, transparent) 82%,
       color-mix(in srgb, var(--palette-ink) 82%, transparent) 100%);
 }
-.hero-inner {
-  position: relative; z-index: 1; width: 100%;
-  max-width: 1180px; margin-inline: auto;
-  padding: var(--space-8) var(--space-6) calc(var(--space-8) * 1.9);
-  color: #fff;
+/* Carry the hero photograph into the first terracotta section with a soft
+   colour dissolve, so the image does not stop at a hard horizontal edge. */
+.hero::after {
+  content: ''; position: absolute; z-index: 0; inset: auto 0 0;
+  height: 3mm; pointer-events: none;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--palette-burnt-terracotta) 38%, transparent) 48%,
+    var(--palette-burnt-terracotta) 100%);
 }
-@media (min-width: 900px) { .hero-inner { padding-inline: var(--space-8); } }
-.hero-eyebrow {
-  display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.28em;
-  text-transform: uppercase; color: color-mix(in srgb, #fff 78%, transparent);
-  margin-bottom: var(--space-4);
-}
-@media (max-width: 480px) {
-  /* At 0.28em the three roles run past the gutter on a narrow phone. */
-  .hero-eyebrow { font-size: 10px; letter-spacing: 0.16em; }
-}
-.hero-title {
-  font-size: clamp(40px, 6.6vw, 82px); line-height: 1.02; margin: 0;
-  max-width: 21ch; letter-spacing: -0.028em; font-weight: 400;
-  text-wrap: balance;
-}
-.hero-lede {
-  max-width: 46ch; margin: var(--space-6) 0 0;
-  font-size: 17px; font-weight: 300; line-height: 1.7;
-  color: color-mix(in srgb, #fff 88%, transparent);
-}
-.hero .actions { margin-top: var(--space-8); }
+.home-ground { --palette-burnt-terracotta: var(--palette-umber); }
 .hero-aside {
   margin: var(--space-4) 0 0; font-size: 14px; font-weight: 300;
   color: color-mix(in srgb, #fff 72%, transparent);
@@ -556,22 +310,14 @@ figcaption.credit {
 }
 .contact-detail dd { margin: var(--space-1) 0 0; font-size: 15px; font-weight: 300; }
 
-/* — footer — */
-.site-footer {
-  background: var(--color-accent-900);
-  color: color-mix(in srgb, var(--color-neutral-100) 72%, transparent);
-  padding-block: calc(var(--space-8) * 1.6);
-}
-.site-footer a { color: color-mix(in srgb, var(--color-neutral-100) 72%, transparent); text-decoration: none; }
-.site-footer a:hover { color: #fff; }
-.footer-inner {
-  max-width: 1180px; margin-inline: auto; padding-inline: var(--space-6);
-  display: flex; flex-wrap: wrap; gap: var(--space-6);
-  justify-content: space-between; align-items: baseline;
-}
-@media (min-width: 900px) { .footer-inner { padding-inline: var(--space-8); } }
-.footer-inner p { margin: 0; font-size: 13px; font-weight: 300; line-height: 1.8; max-width: 42ch; }
-.footer-links { display: flex; gap: var(--space-6); font-size: 13px; flex-wrap: wrap; }
+/* — footer navigation — */
+.site-footer { background:var(--color-neutral-100); color:var(--color-neutral-700); padding-block:clamp(42px,7vw,82px); border-top:1px solid var(--color-divider); }
+.site-footer a { color:var(--color-neutral-700); text-decoration:none; }.site-footer a:hover { color:var(--color-accent-700); }
+.footer-inner { max-width:1180px; margin:auto; padding-inline:var(--space-6); display:grid; grid-template-columns:minmax(180px,1fr) 2fr; gap:48px; }
+@media (min-width:900px) { .footer-inner { padding-inline:var(--space-8); } }
+.footer-signoff { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }.footer-home { font-family:var(--font-heading); color:var(--color-text)!important; font-size:19px; }.footer-signoff p { margin:0; font-size:12px; line-height:1.7; }
+.footer-groups { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,4vw,56px); }.footer-group { display:flex; flex-direction:column; align-items:flex-start; gap:11px; font-size:13px; }.footer-group h2 { margin:0 0 5px; color:var(--color-text); font-family:var(--font-body); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }.footer-group span { color:var(--color-neutral-600); font-size:12px; }.footer-group i { display:block; margin-top:3px; color:var(--color-accent-700); font-size:10px; font-style:normal; letter-spacing:.08em; text-transform:uppercase; }
+@media (max-width:700px) { .footer-inner { grid-template-columns:1fr; gap:30px; }.footer-groups { grid-template-columns:1fr; gap:24px; } }
 
 /* — misc — */
 .back-link { margin: 0 0 var(--space-6); }
@@ -991,7 +737,7 @@ figcaption.credit {
 /* ═════════════════════════════════════════════════════════════════════════
    THE DESCENT — home page
    From the hero down, the page walks out of the dark forest into the light:
-   each section's ground runs from --from to --to percent umber, and the next
+   each section's ground runs from --from to --to percent burnt terracotta, and the next
    one picks up where it ended, so the whole page is one unbroken gradient.
    Light text lives above ~70% umber, dark text below ~30%; the stretch in
    between is the dawn band, which carries no text at all.
@@ -1001,8 +747,8 @@ figcaption.credit {
 .descent-step {
   border-image:
     linear-gradient(to bottom,
-      color-mix(in oklch, var(--palette-umber) var(--from), var(--color-bg)),
-      color-mix(in oklch, var(--palette-umber) var(--to), var(--color-bg)))
+      color-mix(in oklch, var(--palette-burnt-terracotta) var(--from), var(--color-bg)),
+      color-mix(in oklch, var(--palette-burnt-terracotta) var(--to), var(--color-bg)))
     0 fill / 0 / 0 100vw;
 }
 .descent .audio-feature, .descent .night, .descent .world-music { background: transparent; }
@@ -1091,13 +837,13 @@ figcaption.credit {
 /* — the lantern, everywhere: a warm light that follows the cursor — */
 .lantern-glow {
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
-  width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%;
+  width: 640px; height: 640px; margin: -320px 0 0 -320px; border-radius: 50%;
   background: radial-gradient(closest-side,
-    color-mix(in srgb, var(--color-accent-400) 38%, transparent),
-    color-mix(in srgb, var(--color-accent-400) 12%, transparent) 55%,
+    color-mix(in srgb, var(--color-accent-400) 68%, transparent),
+    color-mix(in srgb, var(--color-accent-400) 30%, transparent) 55%,
     transparent);
-  mix-blend-mode: soft-light;
-  opacity: 0; transition: opacity .6s ease;
+  mix-blend-mode: screen;
+  opacity: 0; transition: opacity .35s ease;
   will-change: transform;
 }
 .lantern-glow.is-on { opacity: 1; }
@@ -1105,11 +851,11 @@ figcaption.credit {
 .prose .statement { font-size: clamp(30px, 4.6vw, 60px); line-height: 1.1; color: var(--color-text); max-width: 22ch; }
 .prose .statement-sm { font-size: clamp(24px, 3.2vw, 40px); line-height: 1.2; max-width: 26ch; }
 
-/* — ways in, on every page: the hero's three doors, in the home page's brown — */
+/* — ways in, on every page: the hero's three doors, on burnt terracotta — */
 .ways-strip {
   background: linear-gradient(180deg,
-    var(--palette-umber),
-    color-mix(in oklch, var(--palette-umber) 88%, var(--color-bg)));
+    var(--palette-burnt-terracotta),
+    color-mix(in oklch, var(--palette-burnt-terracotta) 88%, var(--color-bg)));
   color: var(--color-neutral-100);
 }
 .ways-strip-inner {
@@ -1141,16 +887,15 @@ figcaption.credit {
 @media (prefers-reduced-motion: reduce) { .ways-strip-item:hover .ways-strip-name span { transform: none; } }
 
 /* ═════════════════════════════════════════════════════════════════════════
-   OCHRE PAGES — every page except home sits on the colour of the primary
-   button (palette ochre-700). Rather than restyle each component, the page
+   TERRACOTTA PAGES — every page except home sits on burnt terracotta. Rather than restyle each component, the page
    redefines the tokens it reads: the ground becomes ochre, ink becomes
    cream, and the accents lift to sun and gold so they still read on it.
    The primary button inverts (sun ground, ochre text) so it stays the
    strongest thing on the page.
    ═════════════════════════════════════════════════════════════════════════ */
 .ground-ochre {
-  --color-bg:          var(--palette-ochre-700);
-  --color-surface:     color-mix(in srgb, var(--palette-ochre-700) 86%, var(--palette-umber));
+  --color-bg:          var(--palette-burnt-terracotta);
+  --color-surface:     color-mix(in srgb, var(--palette-burnt-terracotta) 86%, var(--palette-umber));
   --color-text:        color-mix(in srgb, var(--palette-sun) 12%, white);
   --color-divider:     color-mix(in srgb, #fff 24%, transparent);
   --color-accent:      var(--palette-sun);
@@ -1167,6 +912,96 @@ figcaption.credit {
 .ground-ochre .btn-primary:hover { background: color-mix(in srgb, var(--palette-sun) 60%, white); }
 .ground-ochre .btn-secondary { color: var(--color-text); }
 .ground-ochre .contact,
-.ground-ochre .site-footer { background: color-mix(in srgb, var(--palette-ochre-700) 88%, var(--palette-umber)); }
+.ground-ochre .site-footer { background: color-mix(in srgb, var(--palette-burnt-terracotta) 88%, var(--palette-umber)); }
 .ground-ochre .media-frame:not(:has(img))::after { color: color-mix(in srgb, #fff 60%, transparent); }
 .ground-ochre ::selection { background: color-mix(in srgb, var(--palette-sun) 40%, transparent); }
+
+.status-tag { display: inline-block; margin-top: var(--space-4); color: var(--color-accent-700); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+
+@media (min-width: 1000px) {
+  .ways { max-width: none; grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .ways > .way, .ways > .way + .way { padding-inline: clamp(18px,2vw,32px); }
+}
+
+/* — October 2026 photography — */
+.media-frame img.site-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.ways > .way .way-photo { width: 100%; aspect-ratio: 1333 / 2000; overflow: hidden; margin-bottom: var(--space-2); }
+.way-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.ways > .way .way-photo + .way-kicker { margin-top: var(--space-2); }
+#about-story .media-frame { aspect-ratio: 1333 / 2000; }
+#about-story .media-frame img.site-photo { object-fit: contain; object-position: 50% 50%; }
+#ways.night.lantern-scope { background: linear-gradient(180deg,rgba(12,19,11,.88),rgba(12,19,11,.84)),url('../img/october-2026/dark-trees.jpg') center 48% / cover; }
+.final-invitation.closing-photo,.final-invitation.sacred-closing,.final-invitation.deep-closing { position: relative; isolation: isolate; overflow: hidden; color: #fff; }
+.final-invitation .section-backdrop { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+.final-invitation.closing-photo::before,.final-invitation.sacred-closing::before,.final-invitation.deep-closing::before { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg,rgba(9,16,11,.48),rgba(9,16,11,.74)); pointer-events: none; }
+.final-invitation.closing-photo .wrap-sm,.final-invitation.sacred-closing .wrap-sm,.final-invitation.deep-closing .wrap-sm { position: relative; z-index: 1; color: #fff; }
+.final-invitation.closing-photo .statement,.final-invitation.sacred-closing .statement,.final-invitation.deep-closing .statement { color: #fff; }
+.final-invitation.closing-photo .statement-follow,.final-invitation.sacred-closing .statement-follow,.final-invitation.deep-closing .statement-follow { color: rgba(255,255,255,.82); }
+.final-invitation.closing-photo .hero-aside { color: rgba(255,255,255,.78); }
+.canopy-ground { background-image: linear-gradient(rgba(246,239,228,.91),rgba(246,239,228,.91)),url('../img/october-2026/canopy.jpg'); background-position: center; background-size: cover; }
+.rock-ground { background: linear-gradient(rgba(13,20,12,.78),rgba(13,20,12,.82)),url('../img/october-2026/rock-detail.jpg') center / cover; color: var(--color-neutral-100); }
+.rock-ground .section-title,.rock-ground .eyebrow,.waterfall-ground .section-title,.waterfall-ground .eyebrow { color: var(--color-neutral-100); }
+.rock-ground .ruled-list { border-color: rgba(255,255,255,.25); }
+.rock-ground .ruled-list > li { border-color: rgba(255,255,255,.25); }
+.rock-ground .ruled-desc { color: rgba(255,255,255,.78); }
+.waterfall-ground { background: linear-gradient(rgba(11,18,12,.68),rgba(11,18,12,.83)),url('../img/october-2026/waterfall-panorama.jpg') center 52% / cover; color: var(--color-neutral-100); }
+.waterfall-ground .prose-lead { color: rgba(255,255,255,.88); }
+.facilitator-scenes { background: linear-gradient(rgba(246,239,228,.9),rgba(246,239,228,.93)),url('../img/october-2026/vines.jpg') center / cover; }
+.practitioner-portrait .media-frame { aspect-ratio: 16 / 7; }
+@media (max-width: 700px) {
+  .practitioner-portrait .media-frame { aspect-ratio: 4 / 3; }
+}
+.final-invitation .section-backdrop { z-index: 0; }
+.final-invitation.closing-photo::before,.final-invitation.sacred-closing::before,.final-invitation.deep-closing::before { z-index: 1; }
+.final-invitation.closing-photo .wrap-sm,.final-invitation.sacred-closing .wrap-sm,.final-invitation.deep-closing .wrap-sm { z-index: 2; }
+.music-listen-scene { background-image: linear-gradient(rgba(15,22,14,.84),rgba(15,22,14,.91)),url('../img/october-2026/canopy.jpg'); background-position: center; background-size: cover; }
+.ceremony-scene { background-image: linear-gradient(rgba(246,239,228,.89),rgba(246,239,228,.94)),url('../img/october-2026/waterfall-detail.jpg'); background-position: center; background-size: cover; }
+.music-events-scene { background-image: linear-gradient(rgba(246,239,228,.9),rgba(246,239,228,.93)),url('../img/october-2026/waterfall-panorama.jpg'); background-position: center; background-size: cover; }
+.healing-process-scene { background-image: linear-gradient(rgba(246,239,228,.91),rgba(246,239,228,.92)),url('../img/october-2026/waterfall-front.jpg'); background-position: center; background-size: cover; }
+
+/* About opens with the home-page introduction, set apart from the portrait. */
+.about-opening { padding-block:clamp(64px,10vw,124px) clamp(40px,6vw,76px); }
+.about-opening .page-statement { max-width:18ch; margin-top:var(--space-4); }
+.about-opening .prose-lead { max-width:62ch; }
+.about-note { margin-top:var(--space-6); font-size:13px; color:var(--color-neutral-600); }
+.about-note a { color:var(--color-accent-700); }
+
+
+/* October image-led editorial pages */
+.lantern-glow { width:40px;height:40px;margin:-20px 0 0 -20px; background:radial-gradient(circle, color-mix(in srgb,var(--color-accent-400) 72%,transparent) 0%, color-mix(in srgb,var(--color-accent-400) 34%,transparent) 42%, transparent 72%); mix-blend-mode:screen; }
+.hero-photo::after { background:linear-gradient(to bottom,transparent 0%,transparent 58%,rgba(18,21,6,.18) 82%,rgba(18,21,6,.32) 100%); }
+.final-invitation.closing-photo::before,.final-invitation.sacred-closing::before,.final-invitation.deep-closing::before { background:linear-gradient(180deg,rgba(9,16,11,.15),rgba(9,16,11,.40)); }
+.ground-ochre { --color-bg:var(--palette-umber); --color-surface:var(--palette-umber); --color-text:var(--palette-ink); --color-divider:color-mix(in srgb,var(--palette-ink) 18%,transparent); --color-accent:var(--palette-gold); --color-accent-600:var(--palette-ochre-700); --color-accent-700:var(--palette-ochre-700); --color-accent-800:var(--palette-ink); --color-neutral-200:color-mix(in srgb,var(--palette-ink) 10%,transparent); --color-neutral-500:color-mix(in srgb,var(--palette-ink) 55%,transparent); --color-neutral-600:color-mix(in srgb,var(--palette-ink) 65%,transparent); --color-neutral-700:color-mix(in srgb,var(--palette-ink) 78%,transparent); color:var(--color-text); }
+.ground-ochre .btn-primary {background:var(--palette-gold);color:var(--palette-ink)}
+.ground-ochre .contact,.ground-ochre .site-footer {background:var(--color-bg)}
+.canopy-ground {background:var(--color-bg)} .rock-ground,.waterfall-ground {background:var(--color-bg);color:var(--color-text)}
+.rock-ground .section-title,.rock-ground .eyebrow,.waterfall-ground .section-title,.waterfall-ground .eyebrow {color:var(--color-text)}
+.rock-ground .ruled-list,.rock-ground .ruled-list>li {border-color:var(--color-divider)} .rock-ground .ruled-desc,.waterfall-ground .prose-lead {color:var(--color-neutral-600)}
+.music-listen-scene {background:linear-gradient(rgba(15,22,14,.12),rgba(15,22,14,.2)),url('../img/october-2026/canopy.jpg') center/cover;color:#fff}
+.photo-stage {position:relative;display:grid;grid-template-areas:"stage";margin:0;overflow:hidden;background:var(--palette-umber);isolation:isolate}
+.photo-stage>img {grid-area:stage;display:block;width:100%;height:auto;object-fit:contain;object-position:center}
+.photo-stage::after {content:"";grid-area:stage;z-index:0;background:linear-gradient(0deg,rgba(14,17,10,.58),rgba(14,17,10,.12) 42%,transparent 72%);pointer-events:none}
+.photo-stage-copy {grid-area:stage;z-index:1;align-self:end;justify-self:center;width:min(100%,1200px);padding:clamp(28px,6vw,86px);color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.photo-stage-copy h2 {font-family:var(--font-display,Georgia,serif);font-size:clamp(34px,6vw,76px);line-height:1.04;margin:.2em 0}
+.photo-stage-copy p {max-width:54ch;font-size:clamp(16px,1.7vw,21px);line-height:1.55;color:rgba(255,255,255,.94)}
+.photo-stage-copy .eyebrow {color:#fff}
+.about-photo-stage>img {object-position:center top}
+.about-photo-stage::after {content:none}
+.music-page .media-feature .media-frame,.playground-page .media-feature .media-frame {aspect-ratio:auto}
+.music-page .media-feature .media-frame img,.playground-page .media-feature .media-frame img {height:auto;object-fit:contain}
+.music-page .media-feature figcaption,.playground-page .media-feature figcaption {position:static}
+.music-page .editorial-split,.playground-page .editorial-split {grid-template-columns:1fr;gap:0}
+.music-page .editorial-split>.media-frame,.playground-page .editorial-split>.media-frame,.music-page .editorial-split .media-pair,.playground-page .editorial-split .media-frame {width:100%;}
+.music-page .editorial-split .media-frame img,.playground-page .editorial-split .media-frame img {height:auto;object-fit:contain}
+.music-page .editorial-split .prose,.playground-page .editorial-split .prose {max-width:760px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(22px,5vw,64px)}
+.about-photo-story {margin-inline:0}
+@media(max-width:700px){.photo-stage-copy{padding:24px}.lantern-glow{width:32px;height:32px;margin:-16px 0 0 -16px}}
+.music-page .media-frame:has(img),.playground-page .media-frame:has(img) {aspect-ratio:auto;height:auto}
+.music-page .media-frame:has(img) img,.playground-page .media-frame:has(img) img {height:auto;object-fit:contain}
+.music-video-stage {height:clamp(420px,48vw,760px); background:#211907 url('../img/october-2026/forest-guitar.jpg') center/cover no-repeat}
+.music-video-stage .music-backdrop-video {grid-area:stage;display:block;width:auto;height:80%;max-width:calc(100% - 48px);justify-self:center;align-self:center;object-fit:contain;object-position:center;background:#050505;border:5px solid #050505;box-sizing:content-box}
+.music-video-stage .video-poster {grid-area:stage;width:100%;height:100%;object-fit:cover;object-position:center}
+.music-video-stage::after {background:linear-gradient(0deg,rgba(14,17,10,.62),rgba(14,17,10,.16) 42%,rgba(14,17,10,.04) 74%)}
+@media(max-width:700px){.music-video-stage{height:clamp(460px,125vw,700px)}}
+@media(prefers-reduced-motion:reduce){.music-backdrop-video{display:none}}

@@ -10,17 +10,23 @@ system (`497d94a3-…`).
 ## Structure
 
 ```
-index.html          Home — the whole world: two ways in, the person, three worlds, listen, who it's for
-sound-healer.html   Branch: what it is, a session in five movements, one to one, group baths, practicalities
-musician.html       Branch: listen, live, ceremony, collaboration, selected work, upcoming, booking
-business.html       Root: the problem, the approach, where it works, formats, enquiry
-practitioner.html   Root: practice, ethics, training, mentoring pathway, FAQ
-facilitator.html    Root: the gathering, spaces, how it unfolds, examples, for organisers
+index.html          Home, three visual pathways and Let’s Go Deeper enquiries
+about.html          About landing page, introduction and Alexander profile
+musician.html       Music landing page: performance, sound healing, collaboration, recording, discography
+sacred-playground.html Sacred Playground landing page: philosophy, Records, Brotherhood, gatherings, podcast
+transpersonal-healing.html  Concise introduction and enquiry pathway
+relational-coaching.html    Concise introduction and enquiry pathway
+sound-healer.html   Detailed sound-healing sessions and practicalities
+business.html       Existing business and corporate service details
+practitioner.html   Existing practitioner and mentoring information
+facilitator.html    Existing facilitation and gatherings information
 css/organic.css     Design system — base tokens + component classes
-css/palette.css     Colour palette — overrides organic.css's colour tokens (the palette we keep)
-css/site.css        Site layer — layout, page chrome, hover states
-js/site.js          Mobile nav, contact form, footer year
-assets/img/         Hero photograph, five widths for srcset
+css/palette.css     Colour palette — overrides organic.css colour tokens
+css/site.css        Site layer — layout, shared dropdown navigation and responsive styling
+js/site.js          Mobile navigation, dropdown behavior, contact form, footer year
+assets/img/         Hero photography, responsive sizes and optimized October 2026 photos
+assets/img/october-2026/  Optimized site copies of the supplied photo set
+assets/video/       Muted looping Music page backdrop video
 assets/reference/   Original concept art (not shipped in a page)
 ```
 
@@ -30,6 +36,8 @@ real page with its own URL, title, description and canonical link, so the site
 is crawlable, shareable and works without JavaScript.
 
 ## Content architecture
+
+The primary navigation is a compact, content-width bar shared across the site. The clickable Alexander Alma mark and name come first, followed by **About**, **Music**, **Sacred Playground**, **Transpersonal Healing**, and **Relational Coaching**. Music and Sacred Playground link directly to their landing pages. On each landing page, a click-to-open menu beside the active tab jumps to sections on that page; the page itself is the overview. Transpersonal Healing and Relational Coaching each have a concise introduction and enquiry pathway. Footer pathways are grouped under **Sound**, **Musician**, and **Contact**.
 
 The pages are **not** one template. Each changes the *kind* of content as the
 visitor scrolls — image, statement, story, process, media, people, invitation —
@@ -84,39 +92,11 @@ Then in **Settings → Pages**, set the custom domain and wait for the
 certificate to issue before ticking **Enforce HTTPS**. It is normal for that
 tickbox to be greyed out for up to an hour after DNS first resolves.
 
-### First push — when Alexander's GitHub account is ready
+### Repository and deployment
 
-The repo does not exist yet. It will live on **Alexander's** account, with us
-pushing as a collaborator, so he needs to create it (or invite us to create
-it) as **`alexanderalma`**, then:
+This working copy is connected to `git@github.com:Alexanderalm/alexanderalma.git`. GitHub Pages serves the repository root without a build step. Changes become public only after they are pushed to the configured publishing branch.
 
-```sh
-# ALEX = Alexander's GitHub username
-git remote add origin https://github.com/$ALEX/alexanderalma.git
-git push -u origin main
-```
-
-Then he enables **Settings → Pages → Source: deploy from branch `main` / root**.
-
-Three things worth knowing before that conversation:
-
-- **The repo must be public.** Pages from a private repo needs a paid plan
-  (Pro/Team). The site is public either way; this is about the source.
-- **The `www` CNAME target depends on whose account it is** —
-  `<his-username>.github.io`, not ours. The four apex A records above are the
-  same regardless.
-- **A domain can only serve one Pages site at a time.** If `alexanderalma.com`
-  gets attached to a repo on another account first, the second one silently
-  fails verification.
-
-Optionally he can verify the domain at account level (Settings → Pages →
-Verified domains) which blocks anyone else claiming it on Pages later.
-
-### Deploying a change after that
-
-```sh
-git push          # Pages rebuilds on push to main
-```
+The `CNAME` and `.nojekyll` files are required for the current Pages setup; keep them in place.
 
 ## Open questions
 

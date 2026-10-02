@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Sun, human figure and moon">
+  <g fill="none" stroke="#d9a94e" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+    <!-- A single open arc frames the sun, figure and moon. -->
+    <path d="M24 72 A34 34 0 0 1 76 72"/>
+    <!-- Sun on the left. -->
+    <circle cx="19" cy="49" r="6" fill="#d9a94e" stroke="none"/>
+    <path d="M19 38v-3 M8 49H5 M30 49h3 M11 41l-2-2 M27 41l2-2"/>
+    <!-- Crescent moon on the right. -->
+    <path d="M81 43a7 7 0 1 0 6 12 5.5 5.5 0 1 1-6-12z" fill="#d9a94e" fill-opacity=".18"/>
+    <!-- Quiet stepped corners, not a closed temple frame. -->
+    <path d="M20 67v13h11 M80 67v13H69"/>
+    <!-- One simple human form: head, arms, body, two legs. -->
+    <circle cx="50" cy="31" r="4" fill="#d9a94e" stroke="none"/>
+    <path d="M50 36v19 M50 40 39 47 M50 40 61 47 M50 55 42 68 M50 55 58 68"/>
+  </g>
+</svg>

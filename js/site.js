@@ -36,6 +36,39 @@
     else if (desktop.addListener) desktop.addListener(onWiden);
   }
 
+  /* — desktop dropdowns —
+     Native details/summary controls provide keyboard and no-JS operation.
+     This small enhancement closes menus on Escape, link selection or outside click. */
+  var menus = Array.prototype.slice.call(document.querySelectorAll('.nav-menu'));
+  menus.forEach(function (menu) {
+    menu.addEventListener('toggle', function () {
+      if (menu.open) menus.forEach(function (other) { if (other !== menu) other.open = false; });
+    });
+    menu.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.open) {
+        menu.open = false;
+        var summary = menu.querySelector('summary');
+        if (summary) summary.focus();
+      }
+    });
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('.nav-submenu a')) menu.open = false;
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-menu')) menus.forEach(function (menu) { menu.open = false; });
+  });
+
+  /* — music page backdrop —
+     Keep the still image for reduced-motion and data-saving visitors. */
+  var musicVideo = document.querySelector('.music-backdrop-video');
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (musicVideo && (reducedMotion.matches || (connection && connection.saveData))) {
+    musicVideo.removeAttribute('autoplay');
+    musicVideo.pause();
+  }
+
   /* — header over the hero photograph —
      Clear glass while the hero is behind the bar, frosted stone once the
      hero has scrolled out from under it. JS only flips .is-scrolled; the
@@ -50,7 +83,6 @@
   } else if (header) {
     header.classList.add('is-scrolled');
   }
-
   /* — the lantern —
      Walking into the night forest, the cursor carries a light. Rather than
      restyling every row on each mousemove, we write the pointer position to
