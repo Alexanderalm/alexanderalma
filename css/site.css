@@ -1010,7 +1010,7 @@ figcaption.credit {
 @media(prefers-reduced-motion:reduce){.music-backdrop-video{display:none}}
 .music-video-embed {width:100%;aspect-ratio:16 / 9;overflow:hidden;background:#120f09}
 .music-video-embed iframe {display:block;width:100%;height:100%;border:0}
-.music-short-feature {padding-top:clamp(48px,8vw,96px)}
+.sound-healing-short {padding-block:clamp(48px,8vw,96px)}
 .music-short-embed {width:min(100%,420px);aspect-ratio:9 / 16;margin:24px auto 0}
 .music-description {max-width:68ch;color:#211b14;text-shadow:none}
 .ceremony-uses {display:flex;flex-wrap:wrap;gap:10px 28px;margin:22px 0 0;padding:0;list-style:none;color:var(--color-accent-700);font-size:clamp(15px,1.4vw,18px)}
