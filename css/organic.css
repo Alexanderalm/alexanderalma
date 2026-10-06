@@ -2,7 +2,7 @@
    Imported verbatim from Claude Design project "Organic"
    (497d94a3-b67d-41be-a3b4-94385fb7e7b3). This file is the source of truth
    for the system's look — retune tokens here, not in site.css. */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Figtree:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Cinzel:wght@400;500;600&family=Figtree:wght@300;400;500;600&display=swap');
 
 :root {
   /* ── Palette, sampled from the hero photograph ─────────────────────────
