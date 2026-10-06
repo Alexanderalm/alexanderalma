@@ -1020,9 +1020,9 @@ figcaption.credit {
 .hero-wordmark {
   position:absolute; z-index:1; inset:clamp(120px,19vh,190px) 20px auto;
   margin:0; text-align:center; color:#f8f0dc;
-  font-family:"Cinzel", "Iowan Old Style", Georgia, serif;
-  font-size:clamp(38px,8.2vw,112px); font-weight:500;
-  letter-spacing:.065em; line-height:1.05;
+  font-family:"Allura", cursive;
+  font-size:clamp(60px,11vw,148px); font-weight:400;
+  letter-spacing:0; line-height:1.05; text-transform:none;
   text-shadow:0 2px 28px rgba(0,0,0,.68),0 0 72px rgba(0,0,0,.38);
   opacity:0; clip-path:inset(48% 0 48%); filter:blur(8px);
   animation:wordmark-emerge 1.8s cubic-bezier(.2,.7,.25,1) .25s forwards;
